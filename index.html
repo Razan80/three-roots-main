@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Roots — Tibetan Medicine for the Modern World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment:     #F2E8D4;
+  --parchment-mid: #E6D9C0;
+  --parchment-deep:#D8CAAC;
+  --earth:         #1C3828;
+  --earth-mid:     #2A4E38;
+  --earth-light:   #3E6650;
+  --saffron:       #C48828;
+  --saffron-light: #DDA040;
+  --saffron-pale:  rgba(196,136,40,0.10);
+  --saffron-border:rgba(196,136,40,0.28);
+  --terracotta:    #A44828;
+  --burgundy:      #6A2030;
+  --stone:         #8A7A68;
+  --text:          #1A1208;
+  --text-mid:      #5A4838;
+  --text-muted:    #9A8A78;
+  --white:         #FDFAF4;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', sans-serif;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--parchment);color:var(--text);font-family:var(--sans);font-weight:400;overflow-x:hidden;line-height:1.6}
+img{display:block;width:100%}
+
+/* ─── PAGE ROUTING ─── */
+.page{display:none;opacity:0;transition:opacity 0.45s ease}
+.page.active{display:block;animation:pageIn 0.5s ease forwards}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 3.5rem;
+  background:rgba(242,232,212,0.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(196,136,40,0.15);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:0.7rem;
+  text-decoration:none;
+}
+.logo-icon{width:48px;height:48px}
+.logo-text{
+  font-family:var(--serif);font-size:1.25rem;font-weight:400;
+  letter-spacing:0.06em;color:var(--earth);line-height:1;
+}
+.logo-text span{display:block;font-size:0.55rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--saffron);font-family:var(--sans);font-weight:500;margin-top:3px}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{
+  font-size:0.78rem;font-weight:500;letter-spacing:0.06em;
+  color:var(--text-mid);text-decoration:none;transition:color 0.25s;
+  text-transform:uppercase;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--saffron)}
+.nav-cta{
+  font-family:var(--sans);font-size:0.75rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--white);background:var(--earth);
+  padding:0.65rem 1.5rem;border-radius:3px;text-decoration:none;
+  border:1px solid var(--earth);transition:all 0.25s;
+}
+.nav-cta:hover{background:var(--earth-mid);transform:translateY(-1px)}
+
+/* ─── SHARED COMPONENTS ─── */
+.label-tag{
+  font-family:var(--sans);font-size:0.68rem;font-weight:600;
+  letter-spacing:0.35em;text-transform:uppercase;color:var(--saffron);
+  margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;
+}
+.label-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--saffron)}
+.section-title{
+  font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);
+  font-weight:300;line-height:1.12;letter-spacing:-0.01em;
+  color:var(--earth);
+}
+.section-title em{font-style:italic;color:var(--saffron)}
+.section-title.light{color:var(--parchment)}
+.section-title.light em{color:var(--saffron-light)}
+.body-text{font-size:1.05rem;line-height:1.85;color:var(--text-mid);font-weight:300}
+.body-text.light{color:rgba(242,232,212,0.75)}
+.gold-rule{width:48px;height:1px;background:var(--saffron);opacity:0.6;margin:1.6rem 0}
+.gold-rule.center{margin:1.6rem auto}
+.section-wrap{max-width:1140px;margin:0 auto;padding:0 3.5rem}
+
+.btn-saffron{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.82rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--white);background:var(--saffron);
+  padding:0.9rem 2.2rem;border-radius:3px;text-decoration:none;
+  border:1px solid var(--saffron);transition:all 0.25s;
+}
+.btn-saffron:hover{background:var(--saffron-light);transform:translateY(-2px)}
+.btn-earth{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.82rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--earth);background:transparent;
+  padding:0.9rem 2.2rem;border-radius:3px;text-decoration:none;
+  border:1px solid rgba(28,56,40,0.35);transition:all 0.25s;
+}
+.btn-earth:hover{background:rgba(28,56,40,0.06);border-color:var(--earth)}
+.btn-outline-light{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.82rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--parchment);background:transparent;
+  padding:0.9rem 2.2rem;border-radius:3px;text-decoration:none;
+  border:1px solid rgba(242,232,212,0.4);transition:all 0.25s;
+}
+.btn-outline-light:hover{border-color:var(--parchment);background:rgba(242,232,212,0.08)}
+
+/* Prayer flags strip */
+.prayer-flags{display:flex;height:4px;width:100%}
+.prayer-flags span{flex:1}
+.pf-blue{background:#2255AA}
+.pf-white{background:#F5F0E8}
+.pf-red{background:#A83030}
+.pf-green{background:#2A6040}
+.pf-yellow{background:#D4A420}
+
+/* Image placeholder */
+.img-ph{
+  width:100%;background:linear-gradient(135deg,var(--earth) 0%,var(--earth-mid) 40%,var(--saffron) 100%);
+  position:relative;overflow:hidden;display:flex;align-items:flex-end;
+}
+.img-ph::after{
+  content:attr(data-label);
+  position:absolute;bottom:16px;left:20px;right:20px;
+  font-family:var(--sans);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(242,232,212,0.6);
+}
+.img-ph-warm{background:linear-gradient(135deg,#5C2A18 0%,#A84828 40%,#D09040 100%)}
+.img-ph-stone{background:linear-gradient(135deg,#3A3028 0%,var(--stone) 60%,var(--parchment-mid) 100%)}
+.img-ph-sky{background:linear-gradient(160deg,#1C2838 0%,#2A4870 50%,#8AACCB 100%)}
+.img-ph-herb{background:linear-gradient(135deg,#1C3820 0%,#2E5C30 50%,#6A9848 100%)}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Stagger helpers */
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ═══════════════════════════════════════
+   HOME PAGE
+═══════════════════════════════════════ */
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 3.5rem 5rem;position:relative;overflow:hidden;
+  background:var(--parchment);
+}
+.hero-mandala{
+  position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+  width:680px;height:680px;opacity:0.055;
+  animation:rotateSlow 120s linear infinite;pointer-events:none;
+}
+@keyframes rotateSlow{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
+.hero-noise{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:0.4;
+}
+.hero-saffron-edge{
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,transparent,var(--saffron),var(--saffron),transparent);
+  opacity:0.6;
+}
+.hero-eyebrow{
+  font-family:var(--sans);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.42em;text-transform:uppercase;color:var(--saffron);
+  margin-bottom:2rem;
+  opacity:0;animation:fadeUp 0.8s ease 0.3s forwards;
+}
+.hero-headline{
+  font-family:var(--serif);
+  font-size:clamp(3.2rem,7.5vw,7.8rem);
+  font-weight:300;line-height:1.0;letter-spacing:-0.02em;
+  max-width:800px;
+  opacity:0;animation:fadeUp 1s ease 0.5s forwards;
+}
+.hero-headline em{font-style:italic;color:var(--saffron)}
+.hero-headline .line2{padding-left:2.5rem}
+.hero-headline .line3{padding-left:5rem;color:var(--earth)}
+.hero-sub{
+  font-size:1.1rem;line-height:1.85;color:var(--text-mid);
+  max-width:460px;margin-top:2.5rem;font-weight:300;
+  opacity:0;animation:fadeUp 0.9s ease 0.7s forwards;
+}
+.hero-actions{
+  display:flex;gap:1rem;align-items:center;margin-top:3rem;
+  opacity:0;animation:fadeUp 0.9s ease 0.9s forwards;
+}
+.hero-bottom{
+  display:flex;align-items:flex-end;gap:4rem;
+  margin-top:5rem;padding-top:2.5rem;
+  border-top:1px solid var(--saffron-border);
+  opacity:0;animation:fadeUp 0.8s ease 1.1s forwards;
+}
+.hero-stat .num{
+  font-family:var(--serif);font-size:2.6rem;font-weight:300;
+  color:var(--earth);line-height:1;display:block;
+}
+.hero-stat .lbl{
+  font-family:var(--sans);font-size:0.7rem;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-muted);margin-top:0.3rem;display:block;
+}
+.hero-scroll-hint{
+  margin-left:auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--saffron),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:0.5}50%{transform:scaleY(1.3);opacity:1}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* Origin Section */
+.origin{
+  background:var(--earth);
+  padding:120px 0;
+  position:relative;overflow:hidden;
+}
+.origin-grain{
+  position:absolute;inset:0;pointer-events:none;opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.origin-inner{
+  max-width:1140px;margin:0 auto;padding:0 3.5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;
+}
+.origin-quote{
+  font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:300;font-style:italic;color:var(--parchment);
+  line-height:1.2;
+}
+.origin-quote em{color:var(--saffron);font-style:normal}
+.origin-attr {
+  font-family:var(--sans);font-size:0.72rem;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,240,236,0.6);
+  margin-top:1.8rem;padding-left:2rem;position:relative;
+}
+.origin-attr::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:18px;height:1px;background:var(--saffron);
+}
+.origin-text .body-text{margin-bottom:1.4em}
+
+/* Three Pillars */
+.pillars{padding:140px 0;background:var(--parchment)}
+.pillars-header{text-align:center;max-width:560px;margin:0 auto 80px}
+.pillars-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;
+}
+.pillar-card{
+  position:relative;overflow:hidden;cursor:pointer;
+  transition:transform 0.4s ease;
+}
+.pillar-card:hover{transform:translateY(-6px)}
+.pillar-img{height:420px}
+.pillar-img.retreat{background:linear-gradient(160deg,#0E2418 0%,#1C4030 55%,var(--earth-light) 100%)}
+.pillar-img.research{background:linear-gradient(160deg,#2A2018 0%,#5A4030 55%,#9A7848 100%)}
+.pillar-img.products{background:linear-gradient(160deg,#2A1418 0%,var(--burgundy) 55%,var(--terracotta) 100%)}
+.pillar-body{padding:36px 36px 44px}
+.pillar-num{font-family:var(--sans);font-size:0.65rem;font-weight:600;letter-spacing:0.3em;color:var(--saffron);margin-bottom:12px}
+.pillar-title{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--earth);margin-bottom:12px}
+.pillar-desc{font-size:0.95rem;line-height:1.8;color:var(--text-mid);font-weight:300;margin-bottom:20px}
+.pillar-link{
+  font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--saffron);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;
+  transition:gap 0.2s;
+}
+.pillar-link:hover{gap:0.8rem}
+
+/* Mission strip */
+.mission-strip{
+  background:var(--parchment-mid);
+  padding:80px 0;
+  border-top:1px solid var(--saffron-border);
+  border-bottom:1px solid var(--saffron-border);
+}
+.mission-strip-inner{
+  max-width:900px;margin:0 auto;padding:0 3.5rem;
+  text-align:center;
+}
+.mission-pull{
+  font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.8rem);
+  font-weight:300;font-style:italic;color:var(--earth);line-height:1.35;
+}
+.mission-pull em{color:var(--saffron);font-style:normal}
+
+/* Team */
+.team{padding:140px 0;background:var(--parchment)}
+.team-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:40px;margin-top:60px;
+}
+.team-card{text-align:center}
+.team-photo{
+  width:160px;height:160px;border-radius:50%;
+  margin:0 auto 24px;
+  border:3px solid var(--saffron-border);
+  position:relative;overflow:hidden;
+}
+.team-photo-inner{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,var(--earth) 0%,var(--earth-light) 100%);
+}
+.team-name{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--earth);margin-bottom:6px}
+.team-role{font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--saffron);margin-bottom:14px}
+.team-bio{font-size:0.92rem;line-height:1.75;color:var(--text-mid);font-weight:300;max-width:300px;margin:0 auto}
+
+/* Home Investor CTA */
+.home-cta{
+  background:var(--earth);padding:140px 0;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.home-cta-mandala{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  pointer-events:none;opacity:0.06;
+}
+.home-cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 3.5rem}
+.home-cta-title{
+  font-family:var(--serif);font-size:clamp(2.2rem,5vw,4.5rem);
+  font-weight:300;color:var(--parchment);line-height:1.1;margin-bottom:1.5rem;
+}
+.home-cta-title em{font-style:italic;color:var(--saffron-light)}
+.home-cta-sub{font-size:1.05rem;color:rgba(242,232,212,0.65);line-height:1.8;font-weight:300;margin-bottom:2.5rem}
+.home-cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════
+   RETREAT PAGE
+═══════════════════════════════════════ */
+.retreat-hero{
+  height:90vh;
+  position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;
+  background:none;position:relative;
+}
+.retreat-hero-mountains{
+  position:absolute;bottom:0;left:0;right:0;pointer-events:none;opacity:0.25;
+}
+.retreat-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,20,14,0.95) 0%,rgba(10,20,14,0.3) 60%,transparent 100%);
+}
+.retreat-hero-content{
+  position:relative;z-index:2;
+  padding:0 3.5rem 5rem;max-width:780px;
+}
+.retreat-hero-eyebrow{
+  font-family:var(--sans);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.42em;text-transform:uppercase;color:var(--saffron-light);
+  margin-bottom:1.5rem;
+}
+.retreat-hero-title {
+  font-family:var(--serif);font-size:clamp(3rem,6vw,6rem);
+  font-weight:300;line-height:1.05;color:var(--earth);
+  text-shadow: 0 0 20px rgba(255,255,255,0.7);
+  letter-spacing:-0.02em;
+}
+.retreat-hero-title em {color:var(--saffron);font-style:italic}
+.retreat-hero-sub {
+  font-size:1.1rem;color:var(--earth);
+  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+  line-height:1.8;font-weight:300;margin-top:1.5rem;max-width:520px;
+}
+
+/* Retreat intro */
+.retreat-intro{padding:120px 0;background:var(--parchment)}
+.retreat-intro-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.retreat-intro-img{height:500px;border-radius:2px}
+.retreat-intro-img.himalayas{
+  background:linear-gradient(155deg,#1A2C1E 0%,#1E4030 50%,#4A7850 100%);
+  position:relative;overflow:hidden;
+}
+.retreat-intro-img.himalayas::before{
+  content:'Dharamshala, Himachal Pradesh';
+  position:absolute;bottom:16px;left:20px;
+  font-family:var(--sans);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(242,232,212,0.5);
+}
+
+/* Experience pillars */
+.experience{padding:120px 0;background:var(--earth)}
+.experience-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:rgba(242,232,212,0.08);
+  margin-top:70px;
+  border:1px solid rgba(242,232,212,0.08);
+}
+.exp-card{
+  padding:48px 32px;
+  transition:background 0.3s;
+  cursor:default;
+}
+.exp-card:hover{background:rgba(196,136,40,0.08)}
+.exp-icon{
+  width:48px;height:48px;
+  border:1px solid var(--saffron-border);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-bottom:24px;font-size:1.2rem;
+}
+.exp-title{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--parchment);margin-bottom:12px}
+.exp-text{font-size:0.92rem;line-height:1.8;color:rgba(242,232,212,0.6);font-weight:300}
+
+/* Roadmap */
+.roadmap{padding:140px 0;background:var(--parchment-mid)}
+.roadmap-title{text-align:center;margin-bottom:80px}
+.roadmap-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  position:relative;gap:0;
+}
+.roadmap-steps::before{
+  content:'';position:absolute;top:32px;left:12%;right:12%;
+  height:1px;background:linear-gradient(to right,transparent,var(--saffron),var(--saffron),var(--saffron),transparent);
+  opacity:0.4;
+}
+.roadmap-step{padding:0 24px;text-align:center;position:relative}
+.roadmap-num{
+  width:64px;height:64px;border-radius:50%;
+  border:1px solid var(--saffron);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 28px;background:var(--parchment-mid);
+  font-family:var(--serif);font-size:1.4rem;color:var(--saffron);
+  position:relative;z-index:1;
+}
+.roadmap-year{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.2em;color:var(--saffron);margin-bottom:8px}
+.roadmap-label{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--earth);margin-bottom:10px}
+.roadmap-detail{font-size:0.88rem;line-height:1.7;color:var(--text-muted);font-weight:300}
+
+/* ═══════════════════════════════════════
+   RESEARCH PAGE
+═══════════════════════════════════════ */
+.research-hero{
+  padding:160px 3.5rem 100px;
+  background:var(--parchment);
+  position:relative;overflow:hidden;
+}
+.research-hero-bg{
+  position:absolute;inset:0;pointer-events:none;opacity:0.04;
+  animation:rotateSlow 200s linear infinite;
+  display:flex;align-items:center;justify-content:center;
+}
+.research-hero-inner{position:relative;z-index:1;max-width:780px}
+.research-hero-title{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:1.05;color:var(--earth)}
+.research-hero-title em{font-style:italic;color:var(--saffron)}
+
+.research-areas{padding:120px 0;background:var(--parchment)}
+.areas-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:60px;
+}
+.area-card{
+  background:var(--parchment-mid);padding:44px 36px;
+  border:1px solid transparent;
+  transition:border-color 0.3s,background 0.3s;cursor:default;
+}
+.area-card:hover{border-color:var(--saffron-border);background:var(--parchment)}
+.area-num{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.3em;color:var(--saffron);margin-bottom:16px}
+.area-title{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--earth);margin-bottom:14px}
+.area-desc{font-size:0.92rem;line-height:1.8;color:var(--text-mid);font-weight:300}
+
+.research-standards{
+  padding:120px 0;background:var(--earth);
+}
+.standards-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.standard-list{margin-top:40px;display:flex;flex-direction:column;gap:1px}
+.standard-item{
+  padding:24px 28px;
+  background:rgba(242,232,212,0.04);
+  border-left:2px solid transparent;
+  transition:all 0.25s;cursor:default;
+}
+.standard-item:hover{background:rgba(196,136,40,0.08);border-left-color:var(--saffron)}
+.standard-item-title{font-family:var(--serif);font-size:1.1rem;color:var(--parchment);margin-bottom:6px}
+.standard-item-text{font-size:0.88rem;line-height:1.7;color:rgba(242,232,212,0.55);font-weight:300}
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS PAGE
+═══════════════════════════════════════ */
+.testimonials-hero{
+  padding:160px 3.5rem 80px;
+  background:var(--parchment);
+  text-align:center;
+}
+.testimonials-hero-title{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,5rem);font-weight:300;line-height:1.08;color:var(--earth)}
+.testimonials-hero-title em{font-style:italic;color:var(--saffron)}
+
+.featured-stories{padding:100px 0;background:var(--parchment)}
+.story-card{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;margin-bottom:4px;overflow:hidden;
+}
+.story-card.reverse{direction:rtl}
+.story-card.reverse>*{direction:ltr}
+.story-img{height:500px}
+.story-img.bali{background:linear-gradient(155deg,#1A2818 0%,#2A4020 50%,#6A9048 100%)}
+.story-img.tibetan{background:linear-gradient(155deg,#2A1818 0%,#5A3020 50%,var(--terracotta) 100%)}
+.story-img.wellness{background:linear-gradient(155deg,#181820 0%,#303060 50%,#7080B0 100%)}
+.story-body{
+  background:var(--parchment-mid);
+  padding:60px 52px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.story-stars{color:var(--saffron);font-size:0.9rem;letter-spacing:0.15em;margin-bottom:24px}
+.story-quote{
+  font-family:var(--serif);font-size:1.35rem;font-weight:300;
+  font-style:italic;color:var(--earth);line-height:1.7;margin-bottom:28px;
+}
+.story-rule{width:40px;height:1px;background:var(--saffron);margin-bottom:20px}
+.story-name{font-family:var(--sans);font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--earth)}
+.story-detail{font-family:var(--sans);font-size:0.75rem;color:var(--text-muted);margin-top:4px}
+.story-outcome{
+  margin-top:24px;padding:16px 20px;
+  background:rgba(196,136,40,0.08);border-left:2px solid var(--saffron);
+  font-size:0.9rem;color:var(--text-mid);line-height:1.6;font-weight:300;
+}
+
+/* Video testimonials */
+.video-section{padding:120px 0;background:var(--earth)}
+.video-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:60px;
+}
+.video-card{position:relative;cursor:pointer}
+.video-thumb{
+  aspect-ratio:16/9;position:relative;overflow:hidden;
+}
+.video-thumb.v1{background:linear-gradient(135deg,#1A2C1E 0%,#2A4A2A 100%)}
+.video-thumb.v2{background:linear-gradient(135deg,#2A1E14 0%,#5A3820 100%)}
+.video-thumb.v3{background:linear-gradient(135deg,#1A1C28 0%,#303858 100%)}
+.play-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(196,136,40,0.85);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.3s,background 0.3s;
+}
+.video-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.1);background:var(--saffron)}
+.play-btn svg{margin-left:3px}
+.video-label{
+  padding:20px 24px;background:rgba(242,232,212,0.05);
+}
+.video-name{font-family:var(--sans);font-size:0.82rem;font-weight:500;color:var(--parchment)}
+.video-loc{font-family:var(--sans);font-size:0.72rem;color:rgba(242,232,212,0.45);margin-top:3px}
+
+/* Quote grid */
+.quote-grid-section{padding:120px 0;background:var(--parchment-mid)}
+.quotes-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:60px;
+}
+.quote-mini{
+  background:var(--parchment);padding:36px 32px;
+  border-bottom:2px solid transparent;transition:border-color 0.3s;
+}
+.quote-mini:hover{border-bottom-color:var(--saffron)}
+.quote-mini-text{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--earth);line-height:1.7;margin-bottom:20px}
+.quote-mini-name{font-family:var(--sans);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--saffron)}
+.quote-mini-role{font-size:0.72rem;color:var(--text-muted);margin-top:3px}
+
+/* ═══════════════════════════════════════
+   PRODUCTS PAGE
+═══════════════════════════════════════ */
+.products-hero{
+  min-height:80vh;display:flex;align-items:center;justify-content:center;
+  background:var(--earth);position:relative;overflow:hidden;padding:160px 3.5rem;
+  text-align:center;
+}
+.products-hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(196,136,40,0.06) 0%,transparent 70%);
+}
+.products-coming{
+  font-family:var(--sans);font-size:0.7rem;font-weight:600;
+  letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--saffron);
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.5rem 1.2rem;border:1px solid var(--saffron-border);border-radius:2px;
+  margin-bottom:2.5rem;
+}
+.products-hero-title{
+  font-family:var(--serif);font-size:clamp(2.8rem,6vw,5.8rem);
+  font-weight:300;color:var(--parchment);line-height:1.05;margin-bottom:1.5rem;
+}
+.products-hero-title em{font-style:italic;color:var(--saffron-light)}
+.products-hero-sub{
+  font-size:1.1rem;color:rgba(242,232,212,0.6);
+  line-height:1.85;font-weight:300;max-width:540px;margin:0 auto 3rem;
+}
+
+.products-philosophy{padding:120px 0;background:var(--parchment)}
+.philosophy-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.product-categories{padding:100px 0;background:var(--parchment-mid)}
+.cat-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-top:60px;
+}
+.cat-card{
+  background:var(--parchment);padding:40px 28px;
+  border-top:2px solid transparent;transition:all 0.3s;cursor:default;
+}
+.cat-card:hover{border-top-color:var(--saffron);background:var(--white)}
+.cat-icon{font-size:1.8rem;margin-bottom:18px}
+.cat-title{font-family:var(--serif);font-size:1.25rem;color:var(--earth);margin-bottom:10px}
+.cat-desc{font-size:0.88rem;line-height:1.75;color:var(--text-mid);font-weight:300}
+.cat-status{
+  display:inline-block;margin-top:18px;
+  font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;
+  padding:0.3rem 0.8rem;
+  background:rgba(196,136,40,0.1);border:1px solid var(--saffron-border);
+  color:var(--saffron);border-radius:2px;
+}
+
+/* Email signup */
+.products-signup{
+  padding:100px 0;background:var(--parchment-mid);
+  border-top:1px solid var(--saffron-border);
+}
+.signup-inner{text-align:center;max-width:560px;margin:0 auto;padding:0 3.5rem}
+.signup-form{display:flex;gap:0;margin-top:2.5rem}
+.signup-form input{
+  flex:1;padding:1rem 1.4rem;
+  background:var(--parchment);
+  border:1px solid var(--saffron-border);border-right:none;
+  font-family:var(--sans);font-size:0.9rem;color:var(--text);
+  outline:none;transition:border-color 0.25s;
+}
+.signup-form input:focus{border-color:var(--saffron)}
+.signup-form input::placeholder{color:var(--text-muted)}
+.signup-form button{
+  padding:1rem 2rem;background:var(--saffron);
+  border:1px solid var(--saffron);color:var(--white);
+  font-family:var(--sans);font-size:0.78rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background 0.25s;
+}
+.signup-form button:hover{background:var(--saffron-light)}
+
+/* ═══════════════════════════════════════
+   INVESTORS PAGE
+═══════════════════════════════════════ */
+.investors-hero{
+  padding:180px 3.5rem 120px;
+  background:var(--earth);position:relative;overflow:hidden;
+}
+.investors-hero-mandala{
+  position:absolute;right:-5%;top:50%;transform:translateY(-50%);
+  width:600px;height:600px;opacity:0.06;
+  animation:rotateSlow 150s linear infinite;pointer-events:none;
+}
+.investors-hero-title{
+  font-family:var(--serif);font-size:clamp(3rem,6.5vw,6rem);
+  font-weight:300;line-height:1.05;color:var(--parchment);max-width:740px;
+}
+.investors-hero-title em{font-style:italic;color:var(--saffron-light)}
+.investors-hero-sub{
+  font-size:1.1rem;color:rgba(242,232,212,0.65);
+  line-height:1.85;font-weight:300;max-width:500px;margin-top:1.8rem;
+}
+.investors-hero-actions{display:flex;gap:1rem;margin-top:3rem;flex-wrap:wrap}
+
+.opportunity{padding:140px 0;background:var(--parchment)}
+.opportunity-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:70px;
+}
+.opp-card{
+  padding:48px 36px;background:var(--parchment-mid);
+  border-bottom:2px solid transparent;
+  transition:all 0.3s;cursor:default;
+}
+.opp-card:hover{border-bottom-color:var(--saffron);background:var(--parchment)}
+.opp-num{font-family:var(--serif);font-size:3rem;font-weight:300;color:var(--saffron);line-height:1;margin-bottom:8px}
+.opp-label{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
+.opp-desc{font-size:0.93rem;line-height:1.8;color:var(--text-mid);font-weight:300}
+
+.phases{padding:120px 0;background:var(--parchment-mid)}
+.phase-grid{margin-top:60px;display:flex;flex-direction:column;gap:2px}
+.phase-row{
+  display:grid;grid-template-columns:140px 1fr 200px;
+  gap:0;background:var(--parchment);
+  align-items:center;
+  border-left:3px solid transparent;
+  transition:border-color 0.3s;cursor:default;
+}
+.phase-row:hover{border-left-color:var(--saffron)}
+.phase-row>*{padding:28px 32px}
+.phase-period{font-family:var(--serif);font-size:1.3rem;color:var(--saffron);font-weight:300}
+.phase-content-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--earth);margin-bottom:6px}
+.phase-content-text{font-size:0.88rem;line-height:1.7;color:var(--text-mid);font-weight:300}
+.phase-amount{
+  text-align:right;
+  font-family:var(--serif);font-size:1.35rem;color:var(--earth);font-weight:300;
+  border-left:1px solid var(--parchment-deep);
+}
+
+.investors-contact{
+  padding:140px 0;background:var(--earth);text-align:center;
+}
+.investors-contact-inner{max-width:600px;margin:0 auto;padding:0 3.5rem}
+.investors-contact-title{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:300;color:var(--parchment);margin-bottom:1rem}
+.investors-contact-title em{font-style:italic;color:var(--saffron-light)}
+.inv-form{display:flex;flex-direction:column;gap:2px;margin-top:2.5rem;text-align:left}
+.inv-form input,.inv-form textarea,.inv-form select{
+  padding:1.1rem 1.4rem;
+  background:rgba(242,232,212,0.05);
+  border:1px solid rgba(196,136,40,0.2);
+  font-family:var(--sans);font-size:0.95rem;color:var(--parchment);
+  outline:none;transition:border-color 0.25s;
+}
+.inv-form input:focus,.inv-form textarea:focus,.inv-form select:focus{border-color:var(--saffron)}
+.inv-form input::placeholder,.inv-form textarea::placeholder{color:rgba(242,232,212,0.3);font-style:italic}
+.inv-form select{color:rgba(242,232,212,0.6);background:rgba(28,56,40,0.6)}
+.inv-form select option{background:var(--earth)}
+.inv-form textarea{resize:vertical;min-height:110px}
+.inv-form button{
+  padding:1.1rem 2rem;background:var(--saffron);
+  border:1px solid var(--saffron);color:var(--white);
+  font-family:var(--sans);font-size:0.82rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;
+  transition:background 0.25s;margin-top:0.5rem;
+}
+.inv-form button:hover{background:var(--saffron-light)}
+.inv-note{font-size:0.82rem;color:rgba(242,232,212,0.35);margin-top:1rem;font-style:italic;text-align:center}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--earth);
+  border-top:1px solid rgba(196,136,40,0.15);
+  padding:60px 3.5rem 40px;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:40px;
+}
+.footer-logo{display:flex;align-items:center;gap:0.7rem}
+.footer-logo-text{font-family:var(--serif);font-size:1.2rem;color:var(--parchment)}
+.footer-logo-text span{display:block;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--saffron);font-family:var(--sans)}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(242,232,212,0.45);text-decoration:none;transition:color 0.25s}
+.footer-links a:hover{color:var(--saffron)}
+.footer-copy{font-size:0.72rem;color:rgba(242,232,212,0.25);font-style:italic;width:100%;text-align:center;padding-top:28px;border-top:1px solid rgba(196,136,40,0.1);margin-top:12px}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
+  nav{padding:1.1rem 1.5rem}
+  .nav-links,.nav-cta{display:none}
+  .section-wrap{padding:0 1.5rem}
+  .pillars-grid,.experience-grid,.areas-grid,.team-grid,.products-grid,
+  .opportunity-grid,.cat-grid,.quotes-grid,.video-grid{grid-template-columns:1fr}
+  .roadmap-steps,.roadmap-steps::before{display:none}
+  .roadmap-steps-mobile{display:flex;flex-direction:column;gap:24px}
+  .philosophy-grid,.retreat-intro-grid,.standards-inner,.story-card{grid-template-columns:1fr}
+  .story-card.reverse{direction:ltr}
+  .phase-row{grid-template-columns:1fr}
+  .hero,.research-hero,.investors-hero,.retreat-hero-content,
+  .testimonials-hero,.products-hero,.retreat-intro{padding-left:1.5rem;padding-right:1.5rem}
+  .origin-inner,.home-cta-inner,.signup-inner,.investors-contact-inner,.mission-strip-inner{padding:0 1.5rem}
+  footer{padding:40px 1.5rem 28px}
+  .footer-links{flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home',this)">
+    <img src="three-roots-logo.jpg" class="logo-icon" alt="Three Roots Logo" style="border-radius: 50%; object-fit: cover;">
+    <div class="logo-text">Three Roots <span>Health is Already Here</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home',this)" data-page="home" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('retreat',this)" data-page="retreat">The Retreat</a></li>
+    <li><a href="#" onclick="showPage('research',this)" data-page="research">Research</a></li>
+    <li><a href="#" onclick="showPage('testimonials',this)" data-page="testimonials">Stories</a></li>
+    <li><a href="#" onclick="showPage('products',this)" data-page="products">Products</a></li>
+    <li><a href="#" onclick="showPage('investors',this)" data-page="investors">Investors</a></li>
+  </ul>
+  <a href="#" onclick="showPage('investors',this)" class="nav-cta">Partner With Us</a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero" style="background:var(--parchment);position:relative;overflow:hidden">
+  <canvas id="hero-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.6;"></canvas>
+  <div class="hero-real-bg" style="position:absolute;inset:0;background-image:url('images/hero-himalayas.png');background-size:cover;background-position:center;z-index:0"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(242,232,212,1) 0%, rgba(242,232,212,0.95) 20%, rgba(242,232,212,0.7) 45%, rgba(242,232,212,0.2) 75%, transparent 100%);z-index:0;"></div>
+    
+    <div class="hero-saffron-edge"></div>
+    <!-- Mandala SVG -->
+    
+
+    <p class="hero-eyebrow">Dharamshala · Bhutan · The World</p>
+    <h1 class="hero-headline">
+      Tibetan Medicine.<br>
+      <span class="line2">Ancient <em>Roots.</em></span><br>
+      <span class="line3">Modern World.</span>
+    </h1>
+    <p class="hero-sub">We are building the world's first research-backed Tibetan medicine retreat centre — where millennia of healing wisdom meets rigorous modern science, and a new global standard of care begins.</p>
+    <div class="hero-actions">
+      <a href="#" onclick="showPage('retreat',null)" class="btn-saffron">Explore the Retreat ↗</a>
+      <a href="#" onclick="showPage('investors',null)" class="btn-earth">Investor Information →</a>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-stat"><span class="num">35+</span><span class="lbl">Years of practice</span></div>
+      <div class="hero-stat"><span class="num">3</span><span class="lbl">Planned retreat centres</span></div>
+      <div class="hero-stat"><span class="num">4,000+</span><span class="lbl">Years of Tibetan medicine history</span></div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prayer flags -->
+  <div class="prayer-flags"><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-red"></span><span class="pf-green"></span><span class="pf-yellow"></span></div>
+
+  <!-- Origin Story -->
+  <section class="origin">
+    <div class="origin-grain"></div>
+  <canvas id="origin-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.8;"></canvas>
+    <div class="origin-inner" style="position:relative;z-index:2">
+      <div class="reveal">
+        <div class="label-tag" style="color:var(--saffron-light)">The Origin</div>
+        <blockquote class="origin-quote">"The retreat in Bali was<br>well-intentioned.<br>But the medicine was <em>wrong.</em><br>The standards were wrong.<br>We knew we could<br>do far better."</blockquote>
+        <p class="origin-attr">Drew Fleming, Co-Founder</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p class="body-text light" style="margin-bottom:1.4em">In 2023, Drew Fleming took a group of clients on a wellness retreat to Bali. The setting was beautiful. The intentions were genuine. But when it came to the actual practice — the herbal formulas, the diagnostic methods, the depth of the healing tradition — it fell short. The products were generic. The medicine wasn't Tibetan. It was theatre.</p>
+        <p class="body-text light" style="margin-bottom:1.4em">He came home with a conviction: that Tibetan medicine — one of the world's most complete and sophisticated healing traditions — deserved an institution worthy of it. One grounded in authentic lineage, led by practitioners of genuine expertise, and held to a standard that both the ancient tradition and modern science could respect.</p>
+        <p class="body-text light">Three Roots was founded on that conviction. Not a retreat company. Not a wellness brand. <strong style="color:var(--parchment);font-weight:400">A movement to bring one of humanity's greatest healing traditions to the people who need it most.</strong></p>
+        <div class="gold-rule" style="margin-top:2.5rem"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars -->
+  <section class="pillars">
+    <div class="section-wrap">
+      <div class="pillars-header reveal">
+        <div class="label-tag">The Three Roots</div>
+        <h2 class="section-title">One vision.<br><em>Three expressions.</em></h2>
+      </div>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal" onclick="showPage('retreat',null)" style="cursor:pointer">
+        <div class="pillar-img retreat" style="background-image:url('images/pillar1.png');background-size:cover;background-position:center;"></div>
+        <div class="pillar-body">
+          <p class="pillar-num">01 · The Retreat</p>
+          <h3 class="pillar-title">Dharamshala Centre</h3>
+          <p class="pillar-desc">A sanctuary in the Himalayas where Tibetan medicine consultations, yoga unlike anywhere else, and deep meditation practices converge in a single transformative experience.</p>
+          <a class="pillar-link">Explore the vision →</a>
+        </div>
+      </div>
+      <div class="pillar-card reveal reveal-delay-1" onclick="showPage('research',null)" style="cursor:pointer">
+        <div class="pillar-img research" style="background-image:url('images/pillar3.png');background-size:cover;background-position:center;"></div>
+        <div class="pillar-body">
+          <p class="pillar-num">02 · The Research</p>
+          <h3 class="pillar-title">Evidence-Based Medicine</h3>
+          <p class="pillar-desc">Rigorous in-house studies. Western accreditation of manufacturing practices. Building the evidentiary bridge between ancient wisdom and modern clinical standards.</p>
+          <a class="pillar-link">Our research approach →</a>
+        </div>
+      </div>
+      <div class="pillar-card reveal reveal-delay-2" onclick="showPage('products',null)" style="cursor:pointer">
+        <div class="pillar-img products" style="background-image:url('images/pillar2.png');background-size:cover;background-position:center;"></div>
+        <div class="pillar-body">
+          <p class="pillar-num">03 · The Products</p>
+          <h3 class="pillar-title">Accredited Products</h3>
+          <p class="pillar-desc">Once our in-house research is complete and manufacturing is certified to western standards, Three Roots will bring the first truly authentic Tibetan medicinal formulas to a global market.</p>
+          <a class="pillar-link">The product vision →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission pull-quote -->
+  <div class="mission-strip">
+    <div class="mission-strip-inner reveal">
+      <div class="gold-rule center"></div>
+      <p class="mission-pull">"Tibetan medicine is not alternative medicine.<br>It is <em>complete medicine</em> — a 4,000-year tradition of<br>systematic diagnosis, botanical pharmacy, and the<br>treatment of the whole human being."</p>
+      <div class="gold-rule center"></div>
+      <p style="font-family:var(--sans);font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);margin-top:1.5rem;text-align:center">Dr. Phuntsog Wangmo · Chief Medical Officer</p>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <section class="team">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag">The Practitioners</div>
+        <h2 class="section-title">Expertise with<br><em>genuine lineage.</em></h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-photo">
+            <div class="team-photo-inner" style="background:linear-gradient(135deg,#2A1C14 0%,#6A4028 100%)"></div>
+          </div>
+          <p class="team-name">Dr. Phuntsog Wangmo</p>
+          <p class="team-role">Chief Medical Officer</p>
+          <p class="team-bio">35+ years of practice. Trained at the Lhasa Mentsekhang. Co-founder of ATMA. One of the foremost Tibetan doctors practicing in the Western world today.</p>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-photo">
+            <div class="team-photo-inner" style="background:linear-gradient(135deg,#1C2A2A 0%,#2A5040 100%)"></div>
+          </div>
+          <p class="team-name">Drew Fleming</p>
+          <p class="team-role">Founder & Director</p>
+          <p class="team-bio">Psychiatric nurse turned Tibetan medicine doctor. Founder of Three Roots. A practitioner who has dedicated his career to bridging ancient healing with modern clinical rigour.</p>
+        </div>
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-photo">
+            <div class="team-photo-inner" style="background:linear-gradient(135deg,#281C20 0%,#5A3040 100%)"></div>
+          </div>
+          <p class="team-name">Research & Advisory</p>
+          <p class="team-role">Scientific Council</p>
+          <p class="team-bio">A growing panel of Western-trained scientists, clinicians, and researchers working alongside our Tibetan doctors to validate, study, and document our clinical outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Home Investor CTA -->
+  <section class="home-cta" style="background-image:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1800&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:fixed;">
+    <div style="position:absolute;inset:0;background:rgba(28,56,40,0.85);z-index:0"></div>
+    
+    <div class="home-cta-inner reveal">
+      <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">A Rare Opportunity</div>
+      <h2 class="home-cta-title">Be part of how<br>the West learns to <em>heal.</em></h2>
+      <p class="home-cta-sub">Three Roots is at the pre-opening stage of its flagship retreat centre in Dharamshala, India. We are seeking aligned angel investors to join us at the ground floor of something genuinely new.</p>
+      <div class="home-cta-actions">
+        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">View Investor Information</a>
+        <a href="#" onclick="showPage('retreat',null)" class="btn-outline-light">See the Retreat Centre</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer prayer flags -->
+  <div class="prayer-flags"><span class="pf-yellow"></span><span class="pf-green"></span><span class="pf-red"></span><span class="pf-white"></span><span class="pf-blue"></span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     RETREAT PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="page-retreat" class="page">
+  <section class="retreat-hero" style="background:none;position:relative">
+  <div style="position:absolute;inset:0;background-image:url('images/retreats-bg.png');background-size:cover;background-position:center;z-index:0"></div>
+  <canvas id="retreat-hero-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+    <!-- Mountain silhouette -->
+    <svg class="retreat-hero-mountains" viewBox="0 0 1440 200" preserveAspectRatio="none">
+      <path d="M0,200 L0,140 L180,60 L360,120 L480,40 L620,100 L720,20 L840,90 L960,30 L1080,80 L1200,50 L1320,110 L1440,70 L1440,200 Z" fill="rgba(10,20,14,0.5)"/>
+      <path d="M0,200 L0,160 L240,100 L400,150 L520,80 L680,130 L780,60 L900,120 L1020,70 L1140,110 L1280,80 L1440,120 L1440,200 Z" fill="rgba(10,20,14,0.35)"/>
+    </svg>
+    <div class="retreat-hero-overlay"></div>
+    <div class="retreat-hero-content">
+      <p class="retreat-hero-eyebrow">The Flagship Centre · Phase One</p>
+      <h1 class="retreat-hero-title">A Sanctuary<br>in the <em>Himalayas.</em></h1>
+      <p class="retreat-hero-sub">Dharamshala, India — home to the Tibetan government in exile, a living community of traditional medicine, and the mountains that have held this knowledge for centuries. This is where Three Roots begins.</p>
+      <div style="display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap">
+        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">Investment Enquiry →</a>
+        <a class="btn-outline-light">Download Prospectus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prayer flags -->
+  <div class="prayer-flags"><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-red"></span><span class="pf-green"></span><span class="pf-yellow"></span></div>
+
+  <!-- Retreat intro -->
+  <section class="retreat-intro">
+    <div class="section-wrap">
+      <div class="retreat-intro-grid">
+        <div class="reveal">
+          <img src="images/about-bg.png" style="height:520px;width:100%;object-fit:cover;border-radius:2px;">
+        </div>
+        <div class="reveal reveal-delay-2" style="padding-top:20px">
+          <div class="label-tag">The Vision</div>
+          <h2 class="section-title">Where medicine<br>and <em>mountain</em> meet.</h2>
+          <div class="gold-rule"></div>
+          <p class="body-text" style="margin-bottom:1.3em">Dharamshala is not an arbitrary choice. It is the seat of the Tibetan government in exile and home to one of the world's most vibrant living communities of traditional Tibetan medicine. We are not building a wellness resort in an exotic location. We are building in the heart of the tradition itself.</p>
+          <p class="body-text" style="margin-bottom:1.3em">Clients will come to Three Roots for a defined residential programme — typically 7 to 21 days — receiving full Tibetan medical consultations, personalised treatment plans, medicinal therapies, yoga instruction, and deep meditation practice.</p>
+          <p class="body-text">Every element will be grounded in authentic clinical practice, overseen by practitioners of genuine lineage, and documented for our ongoing research programme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience pillars -->
+  <section class="experience" style="position:relative;overflow:hidden">
+  <canvas id="experience-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.9;"></canvas>
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag" style="color:var(--saffron-light)">The Experience</div>
+        <h2 class="section-title light">Four disciplines.<br><em>One complete</em> healing.</h2>
+      </div>
+    </div>
+    <div class="section-wrap" style="margin-top:0">
+      <div class="experience-grid reveal reveal-delay-1">
+        <div class="exp-card">
+          <div class="exp-icon">⚕</div>
+          <h3 class="exp-title">Tibetan Medical Consultation</h3>
+          <p class="exp-text">Full classical diagnosis — pulse reading, urine analysis, visual and verbal examination. A personalised treatment plan based on your individual constitution and imbalances.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🌿</div>
+          <h3 class="exp-title">Medicinal Therapies</h3>
+          <p class="exp-text">Authentic medicinal formulas. Medicinal baths, Tibetan massage, golden needle therapy, moxibustion, and compresses — all prescribed and administered by trained doctors.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">☯</div>
+          <h3 class="exp-title">Tibetan Yoga</h3>
+          <p class="exp-text">Not fitness yoga. Tibetan Yantra Yoga — an ancient system of movement, breath, and awareness that most Westerners have never encountered. Taught as it was meant to be taught.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-icon">🧘</div>
+          <h3 class="exp-title">Deep Meditation</h3>
+          <p class="exp-text">The Tibetan meditation tradition is among the world's most sophisticated. Taught progressively, in its proper context, by practitioners who have devoted decades to its study.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section class="roadmap">
+    <div class="section-wrap">
+      <div class="roadmap-title reveal">
+        <div class="label-tag">The Roadmap</div>
+        <h2 class="section-title">Dharamshala<br>to <em>the world.</em></h2>
+      </div>
+      <div class="roadmap-steps reveal reveal-delay-1">
+        <div class="roadmap-step">
+          <div class="roadmap-num">I</div>
+          <p class="roadmap-year">2025–2026</p>
+          <h4 class="roadmap-label">Dharamshala, India</h4>
+          <p class="roadmap-detail">Flagship centre. Full residential programme. In-house research begins. Partnerships with local Tibetan medical institutions established.</p>
+        </div>
+        <div class="roadmap-step">
+          <div class="roadmap-num">II</div>
+          <p class="roadmap-year">2027–2028</p>
+          <h4 class="roadmap-label">Bhutan</h4>
+          <p class="roadmap-detail">The only country where Tibetan medicine is national healthcare. Second centre in Bhutan, leveraging established connections with government and medical institutions.</p>
+        </div>
+        <div class="roadmap-step">
+          <div class="roadmap-num">III</div>
+          <p class="roadmap-year">2028–2029</p>
+          <h4 class="roadmap-label">Western Outposts</h4>
+          <p class="roadmap-detail">Satellite clinics and urban programmes in Europe and the US, supported by our own accredited products and the research base built in Phase I and II.</p>
+        </div>
+        <div class="roadmap-step">
+          <div class="roadmap-num">IV</div>
+          <p class="roadmap-year">2030+</p>
+          <h4 class="roadmap-label">Global Network</h4>
+          <p class="roadmap-detail">A recognised global institution for Tibetan medicine — retreat, research, product, and education verticals all operating under the Three Roots standard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="prayer-flags"><span class="pf-yellow"></span><span class="pf-green"></span><span class="pf-red"></span><span class="pf-white"></span><span class="pf-blue"></span></div>
+
+  <section class="home-cta">
+    <div class="home-cta-inner reveal" style="text-align:center">
+      <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">Join the Vision</div>
+      <h2 class="home-cta-title">Ready to bring this<br>to <em>Dharamshala?</em></h2>
+      <p class="home-cta-sub">We are actively seeking aligned investors to fund the build-out of our flagship centre. Early partners receive privileged access to our programme, research, and network.</p>
+      <div class="home-cta-actions">
+        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">Investment Information →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     RESEARCH PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="page-research" class="page">
+
+  <section class="research-hero" style="padding-top:160px">
+    <div class="research-hero-bg">
+      <svg width="800" height="800" viewBox="0 0 600 600" fill="none">
+        <circle cx="300" cy="300" r="280" stroke="#C48828" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="220" stroke="#C48828" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="160" stroke="#C48828" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="100" stroke="#C48828" stroke-width="0.5"/>
+        <polygon points="300,20 570,440 30,440"  stroke="#C48828" stroke-width="0.4" fill="none"/>
+        <polygon points="300,580 570,160 30,160" stroke="#C48828" stroke-width="0.4" fill="none"/>
+      </svg>
+    </div>
+    <div class="research-hero-inner reveal">
+      <div class="label-tag">Our Research</div>
+      <h1 class="research-hero-title">Ancient knowledge.<br><em>Modern evidence.</em><br>Uncompromised standards.</h1>
+      <div class="gold-rule"></div>
+      <p class="body-text" style="max-width:520px">Tibetan medicine does not need to be proven — it has been practised and refined for 4,000 years. But for it to reach the people who need it in the West, it must speak the language of evidence. That is what our research programme does.</p>
+    </div>
+  </section>
+
+  <!-- Prayer flags -->
+  <div class="prayer-flags"><span class="pf-red"></span><span class="pf-green"></span><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-yellow"></span></div>
+
+  <!-- Research areas -->
+  <section class="research-areas">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag">Areas of Study</div>
+        <h2 class="section-title">What we are<br><em>documenting.</em></h2>
+      </div>
+      <div class="areas-grid">
+        <div class="area-card reveal">
+          <p class="area-num">Area 01</p>
+          <h3 class="area-title">Medicinal Formulas</h3>
+          <p class="area-desc">Clinical efficacy studies of classical Tibetan herbal formulas — tracking patient outcomes, biomarker changes, and quality-of-life metrics across our retreat populations.</p>
+        </div>
+        <div class="area-card reveal reveal-delay-1">
+          <p class="area-num">Area 02</p>
+          <h3 class="area-title">Diagnostic Methods</h3>
+          <p class="area-desc">Correlation studies between Tibetan pulse and urine diagnosis and Western biomedical findings — building the bridge between classical and contemporary diagnostic paradigms.</p>
+        </div>
+        <div class="area-card reveal reveal-delay-2">
+          <p class="area-num">Area 03</p>
+          <h3 class="area-title">Tibetan Yoga Outcomes</h3>
+          <p class="area-desc">Physiological and psychological outcome measurement for Yantra Yoga practice — stress markers, neurological correlates, and longitudinal wellbeing data.</p>
+        </div>
+        <div class="area-card reveal reveal-delay-1">
+          <p class="area-num">Area 04</p>
+          <h3 class="area-title">External Therapies</h3>
+          <p class="area-desc">Documenting the clinical outcomes of Tibetan massage, medicinal baths, moxibustion, golden needle therapy, and other classical external treatment modalities.</p>
+        </div>
+        <div class="area-card reveal reveal-delay-2">
+          <p class="area-num">Area 05</p>
+          <h3 class="area-title">Mental Health Applications</h3>
+          <p class="area-desc">Tibetan medicine has sophisticated frameworks for understanding psychological suffering. We are studying outcomes in anxiety, depression, and burnout across our patient cohort.</p>
+        </div>
+        <div class="area-card reveal reveal-delay-3">
+          <p class="area-num">Area 06</p>
+          <h3 class="area-title">Integrative Protocols</h3>
+          <p class="area-desc">Developing documented protocols for integrating Tibetan medicine alongside conventional Western treatment — for patients managing chronic conditions with medical oversight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Western standards -->
+  <section class="research-standards">
+    <div class="section-wrap">
+      <div class="standards-inner">
+        <div class="reveal">
+          <div class="label-tag" style="color:var(--saffron-light)">Our Standard</div>
+          <h2 class="section-title light">Not alternative.<br><em>Complementary.</em><br>Fully accredited.</h2>
+          <div class="gold-rule"></div>
+          <p class="body-text light" style="margin-bottom:1.3em">Our long-term goal is the accreditation of our in-house manufacturing processes to Western GMP (Good Manufacturing Practice) standards — enabling the international distribution of authentic Tibetan medicinal products for the first time.</p>
+          <p class="body-text light">This is not a small ambition. It has never been done. It requires a sustained programme of research, regulatory engagement, and institutional relationship-building. Three Roots is built to do exactly that.</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="standard-list">
+            <div class="standard-item">
+              <p class="standard-item-title">In-House Clinical Documentation</p>
+              <p class="standard-item-text">Full patient records, treatment protocols, and outcome tracking from day one of operation. Building the evidence base systematically, from the ground up.</p>
+            </div>
+            <div class="standard-item">
+              <p class="standard-item-title">Western Scientific Partnerships</p>
+              <p class="standard-item-text">Collaborations with university research departments and independent clinical scientists to provide rigorous external validation of our in-house findings.</p>
+            </div>
+            <div class="standard-item">
+              <p class="standard-item-title">GMP Manufacturing Roadmap</p>
+              <p class="standard-item-text">A phased programme toward Good Manufacturing Practice certification for our medicinal formulas — the key to Western market access for Tibetan medicines.</p>
+            </div>
+            <div class="standard-item">
+              <p class="standard-item-title">Publication & Dissemination</p>
+              <p class="standard-item-text">Peer-reviewed publications, white papers, and public-facing documentation of our research outcomes — contributing to the global evidence base for Tibetan medicine.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="prayer-flags"><span class="pf-yellow"></span><span class="pf-green"></span><span class="pf-red"></span><span class="pf-white"></span><span class="pf-blue"></span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TESTIMONIALS PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="page-testimonials" class="page">
+
+  <section class="testimonials-hero">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag" style="justify-content:center">Client Stories</div>
+        <h1 class="testimonials-hero-title">What changes<br>when <em>real medicine</em> meets you.</h1>
+        <div class="gold-rule center"></div>
+        <p class="body-text" style="max-width:520px;margin:0 auto;text-align:center">These are not wellness holiday reviews. They are accounts of people whose understanding of their own health — and what healing can look like — was fundamentally changed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prayer flags -->
+  <div class="prayer-flags"><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-red"></span><span class="pf-green"></span><span class="pf-yellow"></span></div>
+
+  <!-- Featured stories -->
+  <section class="featured-stories">
+    <div class="story-card reveal">
+      <div class="story-img bali" style="position:relative;overflow:hidden">
+        <span style="position:absolute;bottom:16px;left:20px;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,232,212,0.5)">Bali Retreat, 2023</span>
+      </div>
+      <div class="story-body">
+        <div class="story-stars">★★★★★</div>
+        <p class="story-quote">"I had tried everything — acupuncture, functional medicine, three different psychiatrists. My nervous system just wouldn't settle. After ten days with Dr. Phuntsog, something shifted that I still cannot fully explain but can absolutely feel."</p>
+        <div class="story-rule"></div>
+        <p class="story-name">Sarah M.</p>
+        <p class="story-detail">Marketing Director · London, UK</p>
+        <div class="story-outcome">Outcome: Significant reduction in chronic anxiety, improved sleep quality, discontinued one pharmaceutical after 18 months — under medical supervision.</div>
+      </div>
+    </div>
+
+    <div class="story-card reverse reveal">
+      <div class="story-img tibetan" style="position:relative;overflow:hidden">
+        <span style="position:absolute;bottom:16px;right:20px;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,232,212,0.5)">Individual Consultation, 2024</span>
+      </div>
+      <div class="story-body">
+        <div class="story-stars">★★★★★</div>
+        <p class="story-quote">"I came in total scepticism. I left having experienced one of the most precise diagnostic encounters of my life. The pulse reading alone identified things my GP had missed for years. The Tibetan approach to chronic illness is genuinely different."</p>
+        <div class="story-rule"></div>
+        <p class="story-name">James K.</p>
+        <p class="story-detail">Physician · Sydney, Australia</p>
+        <div class="story-outcome">Outcome: Identified long-standing digestive imbalance. Dietary and herbal protocol resulted in 80% reduction in symptoms within six weeks.</div>
+      </div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="story-img wellness" style="position:relative;overflow:hidden">
+        <span style="position:absolute;bottom:16px;left:20px;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,232,212,0.5)">Group Programme, 2024</span>
+      </div>
+      <div class="story-body">
+        <div class="story-stars">★★★★★</div>
+        <p class="story-quote">"The yoga they teach is like nothing I've encountered in fifteen years of practice. It's not exercise — it's medicine delivered through movement. And the meditation instruction goes to places most teachers simply don't know exist."</p>
+        <div class="story-rule"></div>
+        <p class="story-name">Meera P.</p>
+        <p class="story-detail">Yoga Teacher & Practitioner · New Delhi, India</p>
+        <div class="story-outcome">Outcome: Complete transformation of personal practice. Now training directly under Three Roots teachers for teacher certification in Tibetan Yantra Yoga.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video testimonials -->
+  <section class="video-section">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag" style="color:var(--saffron-light)">Video Stories</div>
+        <h2 class="section-title light">In their<br><em>own words.</em></h2>
+      </div>
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <div class="video-thumb v1">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-label">
+            <p class="video-name">Robert T. — 14-day programme</p>
+            <p class="video-loc">London, UK · Heart & energy levels</p>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-1">
+          <div class="video-thumb v2">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-label">
+            <p class="video-name">Ananya S. — Yoga immersion</p>
+            <p class="video-loc">Melbourne, Australia · Practice transformation</p>
+          </div>
+        </div>
+        <div class="video-card reveal reveal-delay-2">
+          <div class="video-thumb v3">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-label">
+            <p class="video-name">Dr. Claire H. — Individual consultation</p>
+            <p class="video-loc">Toronto, Canada · Chronic fatigue journey</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote grid -->
+  <section class="quote-grid-section">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag">More Voices</div>
+        <h2 class="section-title">Small things<br>that <em>say everything.</em></h2>
+      </div>
+      <div class="quotes-grid">
+        <div class="quote-mini reveal">
+          <p class="quote-mini-text">"The accuracy of the diagnostic process was startling to me as a clinician. I came to understand and I left converted."</p>
+          <p class="quote-mini-name">Dr. P.N.</p>
+          <p class="quote-mini-role">Integrative Physician · USA</p>
+        </div>
+        <div class="quote-mini reveal reveal-delay-1">
+          <p class="quote-mini-text">"I have never been more clearly seen as a whole human being by any medical system, Western or Eastern."</p>
+          <p class="quote-mini-name">Catherine L.</p>
+          <p class="quote-mini-role">Author & Educator · France</p>
+        </div>
+        <div class="quote-mini reveal reveal-delay-2">
+          <p class="quote-mini-text">"The Tibetan yoga instruction alone was worth the entire journey. I had no idea this even existed."</p>
+          <p class="quote-mini-name">Tom W.</p>
+          <p class="quote-mini-role">Entrepreneur · New Zealand</p>
+        </div>
+        <div class="quote-mini reveal">
+          <p class="quote-mini-text">"My digestive issues of seven years resolved in two weeks. I'm still not sure how. But they have not returned."</p>
+          <p class="quote-mini-name">Fatima A.</p>
+          <p class="quote-mini-role">Architect · UAE</p>
+        </div>
+        <div class="quote-mini reveal reveal-delay-1">
+          <p class="quote-mini-text">"It changed my understanding of what medicine is. That is not a small thing to say."</p>
+          <p class="quote-mini-name">Michael B.</p>
+          <p class="quote-mini-role">Surgeon · Germany</p>
+        </div>
+        <div class="quote-mini reveal reveal-delay-2">
+          <p class="quote-mini-text">"The meditation techniques I was taught are the most profound I have encountered in thirty years of practice."</p>
+          <p class="quote-mini-name">Roshi J.</p>
+          <p class="quote-mini-role">Meditation Teacher · Japan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="prayer-flags"><span class="pf-yellow"></span><span class="pf-green"></span><span class="pf-red"></span><span class="pf-white"></span><span class="pf-blue"></span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     PRODUCTS PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="page-products" class="page">
+
+  <section class="products-hero">
+    <div class="products-hero-bg"></div>
+    <div style="position:relative;z-index:1">
+      <div class="products-coming">
+        <span style="width:6px;height:6px;background:var(--saffron);border-radius:50%;animation:pulse 2s infinite"></span>
+        In Development · 2027
+      </div>
+      <h1 class="products-hero-title">Tibetan medicine,<br><em>accredited</em> for the world.</h1>
+      <p class="products-hero-sub">The first authentic Tibetan medicinal formulas to be manufactured to Western GMP standards and made available for international distribution. This is where our research leads.</p>
+    </div>
+  </section>
+
+  <!-- Prayer flags -->
+  <div class="prayer-flags"><span class="pf-red"></span><span class="pf-green"></span><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-yellow"></span></div>
+
+  <!-- Philosophy -->
+  <section class="products-philosophy">
+    <div class="section-wrap">
+      <div class="philosophy-grid">
+        <div class="reveal">
+          <div class="label-tag">The Philosophy</div>
+          <h2 class="section-title">Not supplements.<br><em>Classical formulas.</em><br>Properly made.</h2>
+          <div class="gold-rule"></div>
+          <p class="body-text" style="margin-bottom:1.3em">Tibetan medicine has a pharmacopoeia of thousands of formulas, refined over centuries. They are not herbal supplements. They are precise, multi-ingredient preparations with specific indications, dosages, and preparation methods — prescribed following diagnosis, not marketed broadly.</p>
+          <p class="body-text">What Three Roots is building is the pathway to bring these formulas — properly authenticated, properly manufactured, properly studied — to practitioners and patients in the West who have no current access to them. It is a significant undertaking. That is exactly why we are doing it.</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <img src="images/experience-bg.png" style="height:460px;width:100%;object-fit:cover;border-radius:2px;">
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product categories -->
+  <section class="product-categories">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag">Product Vision</div>
+        <h2 class="section-title">What we are<br><em>preparing.</em></h2>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card reveal">
+          <div class="cat-icon">🌿</div>
+          <h3 class="cat-title">Herbal Formulas</h3>
+          <p class="cat-desc">Classical multi-herb preparations in traditional pill, powder, and decoction forms. Prescribed by qualified Tibetan doctors following consultation.</p>
+          <span class="cat-status">Research Phase</span>
+        </div>
+        <div class="cat-card reveal reveal-delay-1">
+          <div class="cat-icon">🛁</div>
+          <h3 class="cat-title">Medicinal Bath Preparations</h3>
+          <p class="cat-desc">Classical five-root and seven-branch medicinal bath formulas for home use — a simplified delivery of one of Tibetan medicine's most powerful external treatments.</p>
+          <span class="cat-status">In Development</span>
+        </div>
+        <div class="cat-card reveal reveal-delay-2">
+          <div class="cat-icon">🫙</div>
+          <h3 class="cat-title">Topical Preparations</h3>
+          <p class="cat-desc">Medicated oils, compresses, and external applications derived from classical Tibetan medicine formulas — studied and standardised for Western market compliance.</p>
+          <span class="cat-status">Concept Stage</span>
+        </div>
+        <div class="cat-card reveal reveal-delay-3">
+          <div class="cat-icon">📚</div>
+          <h3 class="cat-title">Practitioner Line</h3>
+          <p class="cat-desc">A professional line of formulas for distribution through qualified Western practitioners trained in Tibetan medicine — ensuring responsible clinical use.</p>
+          <span class="cat-status">Long-Term Vision</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email signup -->
+  <section class="products-signup">
+    <div class="signup-inner">
+      <div class="reveal">
+        <div class="label-tag" style="justify-content:center">Stay Informed</div>
+        <h2 class="section-title" style="text-align:center">Be the first to<br><em>know.</em></h2>
+        <p class="body-text" style="text-align:center;margin-top:1rem">We will notify registered contacts when our products enter clinical trial, pre-launch, and market availability phases.</p>
+      </div>
+      <div class="signup-form reveal reveal-delay-1">
+        <input type="email" placeholder="Your email address">
+        <button type="submit">Notify Me</button>
+      </div>
+      <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:1rem;font-style:italic">No marketing. Just significant updates, when they happen.</p>
+    </div>
+  </section>
+  <div class="prayer-flags"><span class="pf-yellow"></span><span class="pf-green"></span><span class="pf-red"></span><span class="pf-white"></span><span class="pf-blue"></span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     INVESTORS PAGE
+═══════════════════════════════════════════════════════ -->
+<div id="page-investors" class="page">
+
+  <section class="investors-hero">
+    <svg class="investors-hero-mandala" viewBox="0 0 600 600" fill="none">
+      <circle cx="300" cy="300" r="280" stroke="#C48828" stroke-width="0.5"/>
+      <circle cx="300" cy="300" r="220" stroke="#C48828" stroke-width="0.5"/>
+      <circle cx="300" cy="300" r="160" stroke="#C48828" stroke-width="0.5"/>
+      <polygon points="300,20 570,440 30,440" stroke="#C48828" stroke-width="0.4" fill="none"/>
+      <polygon points="300,580 570,160 30,160" stroke="#C48828" stroke-width="0.4" fill="none"/>
+    </svg>
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag" style="color:var(--saffron-light)">For Investors</div>
+        <h1 class="investors-hero-title">A category-defining<br>opportunity in<br><em>integrative medicine.</em></h1>
+        <p class="investors-hero-sub">The global wellness industry is worth $5.6 trillion. Tibetan medicine has never had a credible, research-backed, institutionalised entry into it. Until now.</p>
+        <div class="investors-hero-actions">
+          <a href="#inv-contact" onclick="document.getElementById('inv-contact').scrollIntoView({behavior:'smooth'})" class="btn-saffron">Request Full Prospectus</a>
+          <a class="btn-outline-light">Schedule a Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="prayer-flags"><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-red"></span><span class="pf-green"></span><span class="pf-yellow"></span></div>
+
+  <!-- Opportunity -->
+  <section class="opportunity">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag">The Market</div>
+        <h2 class="section-title">Why this.<br><em>Why now.</em></h2>
+      </div>
+      <div class="opportunity-grid">
+        <div class="opp-card reveal">
+          <p class="opp-num">$5.6T</p>
+          <p class="opp-label">Global Wellness Market</p>
+          <p class="opp-desc">The largest consumer category in the world, growing at 10%+ annually. Authentic, tradition-rooted, evidence-backed offerings command premium positioning.</p>
+        </div>
+        <div class="opp-card reveal reveal-delay-1">
+          <p class="opp-num">Zero</p>
+          <p class="opp-label">Comparable Competitors</p>
+          <p class="opp-desc">No institution currently exists that combines authentic Tibetan medical practice, in-house clinical research, and a pathway to accredited Western product distribution. This space is unoccupied.</p>
+        </div>
+        <div class="opp-card reveal reveal-delay-2">
+          <p class="opp-num">4,000</p>
+          <p class="opp-label">Years of Proven Practice</p>
+          <p class="opp-desc">Tibetan medicine is not a trend. It is one of the world's most complete and systematically developed healing traditions — with a clinical record spanning millennia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phases -->
+  <section class="phases">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag">Investment Phases</div>
+        <h2 class="section-title">How capital<br><em>builds the vision.</em></h2>
+      </div>
+      <div class="phase-grid reveal reveal-delay-1">
+        <div class="phase-row">
+          <div><p class="phase-period">Phase I</p></div>
+          <div>
+            <p class="phase-content-title">Dharamshala Retreat Centre</p>
+            <p class="phase-content-text">Land, build-out, operational setup, staff, programme development, and initial research infrastructure. Target opening: 2026.</p>
+          </div>
+          <div><p class="phase-amount">Seed Round</p></div>
+        </div>
+        <div class="phase-row">
+          <div><p class="phase-period">Phase II</p></div>
+          <div>
+            <p class="phase-content-title">Research Programme & Bhutan Expansion</p>
+            <p class="phase-content-text">In-house research centre, scientific advisory appointments, Bhutan centre feasibility and development. Western clinic pilots.</p>
+          </div>
+          <div><p class="phase-amount">Series A</p></div>
+        </div>
+        <div class="phase-row">
+          <div><p class="phase-period">Phase III</p></div>
+          <div>
+            <p class="phase-content-title">Product Development & Global Clinics</p>
+            <p class="phase-content-text">GMP manufacturing facility, Western regulatory submissions, product launch, urban clinic network in Europe and USA.</p>
+          </div>
+          <div><p class="phase-amount">Series B</p></div>
+        </div>
+        <div class="phase-row">
+          <div><p class="phase-period">Phase IV</p></div>
+          <div>
+            <p class="phase-content-title">Global Institution</p>
+            <p class="phase-content-text">Full network of retreat centres, established product business, education and training programmes, recognised research institution.</p>
+          </div>
+          <div><p class="phase-amount">Growth</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What investors get -->
+  <section style="padding:120px 0;background:var(--parchment)">
+    <div class="section-wrap">
+      <div class="reveal">
+        <div class="label-tag">What You Receive</div>
+        <h2 class="section-title">Beyond the<br><em>financial return.</em></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px">
+        <div class="opp-card reveal" style="background:var(--parchment-mid)">
+          <p class="opp-num" style="font-size:2rem">Equity</p>
+          <p class="opp-label">Ownership Stake</p>
+          <p class="opp-desc">Meaningful equity in an institution being built to define a new category — with long-term value in the retreat, research, and product verticals.</p>
+        </div>
+        <div class="opp-card reveal reveal-delay-1" style="background:var(--parchment-mid)">
+          <p class="opp-num" style="font-size:2rem">Access</p>
+          <p class="opp-label">Priority Programme Access</p>
+          <p class="opp-desc">Early investors receive privileged access to our retreat programmes, research findings, and the Three Roots practitioner network.</p>
+        </div>
+        <div class="opp-card reveal" style="background:var(--parchment-mid)">
+          <p class="opp-num" style="font-size:2rem">Story</p>
+          <p class="opp-label">Part of Something Rare</p>
+          <p class="opp-desc">The chance to be at the founding of an institution that brings genuine, profound healing to a world that desperately needs a better approach to health.</p>
+        </div>
+        <div class="opp-card reveal reveal-delay-1" style="background:var(--parchment-mid)">
+          <p class="opp-num" style="font-size:2rem">Impact</p>
+          <p class="opp-label">Category-Defining Legacy</p>
+          <p class="opp-desc">Three Roots will be the institution that opened the door. Investors at this stage are part of that founding narrative — permanently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section class="investors-contact" id="inv-contact">
+    <div class="investors-contact-inner">
+      <div class="reveal">
+        <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">Begin the Conversation</div>
+        <h2 class="investors-contact-title">We are selective.<br><em>Tell us about yourself.</em></h2>
+        <div class="gold-rule center"></div>
+        <p style="font-size:1rem;color:rgba(242,232,212,0.55);line-height:1.8;font-weight:300;margin-bottom:0.5rem">We are looking for aligned investors — people who believe in this mission as much as the financial opportunity. We will respond to every enquiry personally.</p>
+      </div>
+      <form class="inv-form reveal reveal-delay-1">
+        <input type="text"  placeholder="Full name">
+        <input type="email" placeholder="Email address">
+        <input type="text"  placeholder="Organisation / background">
+        <select>
+          <option value="">Investment consideration range</option>
+          <option>Under $100K</option>
+          <option>$100K – $500K</option>
+          <option>$500K – $2M</option>
+          <option>$2M+</option>
+          <option>Prefer not to say at this stage</option>
+        </select>
+        <textarea placeholder="Tell us what drew you to Three Roots and what you're looking for in this investment…"></textarea>
+        <button type="submit">Submit Enquiry →</button>
+      </form>
+      <p class="inv-note">All enquiries handled in strict confidence. We respond within 3 business days.</p>
+    </div>
+  </section>
+
+  <div class="prayer-flags"><span class="pf-yellow"></span><span class="pf-green"></span><span class="pf-red"></span><span class="pf-white"></span><span class="pf-blue"></span></div>
+</div>
+
+
+<!-- ─── SHARED FOOTER ─── -->
+<footer id="site-footer">
+  <div class="footer-logo">
+    <img src="three-roots-logo.jpg" alt="Three Roots Logo" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
+    <div class="footer-logo-text">Three Roots <span>Tibetan Medicine · Est. 2023</span></div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#" onclick="showPage('home',null)">Home</a></li>
+    <li><a href="#" onclick="showPage('retreat',null)">The Retreat</a></li>
+    <li><a href="#" onclick="showPage('research',null)">Research</a></li>
+    <li><a href="#" onclick="showPage('testimonials',null)">Stories</a></li>
+    <li><a href="#" onclick="showPage('products',null)">Products</a></li>
+    <li><a href="#" onclick="showPage('investors',null)">Investors</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Three Roots Ltd. All rights reserved. Dharamshala · Bhutan · The World.<br><span style="opacity:0.6;font-size:0.68rem">* Tibetan medicine is a traditional healing system. Nothing on this site constitutes medical advice. Consult a qualified practitioner.</span></p>
+</footer>
+
+
+<script>
+  // ─── PAGE ROUTING ───
+  function showPage(id, linkEl) {
+    // Hide all
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.remove('active');
+      p.style.display = 'none';
+    });
+
+    // Show target
+    const target = document.getElementById('page-' + id);
+    if (target) {
+      target.style.display = 'block';
+      // Force reflow then add class
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          target.classList.add('active');
+        });
+      });
+    }
+
+    // Update nav active states
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    if (linkEl) linkEl.classList.add('active');
+    else {
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        if (a.dataset.page === id) a.classList.add('active');
+      });
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Re-run reveals for new page
+    setTimeout(runReveals, 100);
+
+    return false;
+  }
+
+  // Init: hide all but home
+  document.querySelectorAll('.page').forEach(p => {
+    if (!p.classList.contains('active')) p.style.display = 'none';
+  });
+
+  // ─── SCROLL REVEAL ───
+  function runReveals() {
+    const reveals = document.querySelectorAll('.page.active .reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => {
+      if (!el.classList.contains('visible')) observer.observe(el);
+    });
+  }
+  runReveals();
+
+  // ─── FORM SUBMIT ───
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) {
+        btn.textContent = '✓  Received — We\'ll be in touch';
+        btn.style.background = 'linear-gradient(135deg,#2A5A30,#1E4028)';
+        btn.disabled = true;
+      }
+    });
+  });
+</script>
+</body>
+</html>
