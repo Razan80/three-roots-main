@@ -423,8 +423,9 @@ nav{
   width:48px;height:48px;
   border:1px solid var(--saffron-border);
   border-radius:50%;display:flex;align-items:center;justify-content:center;
-  margin-bottom:24px;font-size:1.2rem;
+  margin-bottom:24px;
 }
+.exp-icon svg{width:22px;height:22px;stroke:var(--saffron);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
 .exp-title{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--parchment);margin-bottom:12px}
 .exp-text{font-size:0.92rem;line-height:1.8;color:rgba(242,232,212,0.6);font-weight:300}
 
@@ -432,7 +433,7 @@ nav{
 .roadmap{padding:140px 0;background:var(--parchment-mid)}
 .roadmap-title{text-align:center;margin-bottom:80px}
 .roadmap-steps{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(5,1fr);
   position:relative;gap:0;
 }
 .roadmap-steps::before{
@@ -530,7 +531,6 @@ nav{
   padding:60px 52px;
   display:flex;flex-direction:column;justify-content:center;
 }
-.story-stars{color:var(--saffron);font-size:0.9rem;letter-spacing:0.15em;margin-bottom:24px}
 .story-quote{
   font-family:var(--serif);font-size:1.35rem;font-weight:300;
   font-style:italic;color:var(--earth);line-height:1.7;margin-bottom:28px;
@@ -670,6 +670,43 @@ nav{
 /* ═══════════════════════════════════════
    INVESTORS PAGE
 ═══════════════════════════════════════ */
+/* Investor access gate */
+.investor-gate{
+  min-height:75vh;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--earth);
+  padding:180px 3.5rem 120px;
+  text-align:center;
+}
+.investor-gate-inner{max-width:520px;margin:0 auto}
+.investor-gate-title{
+  font-family:var(--serif);font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:300;color:var(--parchment);margin-bottom:1rem;
+}
+.investor-gate-title em{font-style:italic;color:var(--saffron-light)}
+.investor-gate-text{
+  font-size:1rem;color:rgba(242,232,212,0.6);
+  line-height:1.8;font-weight:300;margin-bottom:2.5rem;
+}
+.investor-gate-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.investor-gate-form input{
+  flex:1;min-width:200px;max-width:280px;
+  padding:14px 18px;border-radius:2px;outline:none;
+  background:rgba(242,232,212,0.06);
+  border:1px solid rgba(242,232,212,0.2);
+  color:var(--parchment);font-family:var(--sans);font-size:0.9rem;
+}
+.investor-gate-form input:focus{border-color:var(--saffron)}
+.investor-gate-form button{
+  padding:14px 28px;border:none;border-radius:2px;cursor:pointer;
+  background:var(--saffron);color:var(--earth);
+  font-family:var(--sans);font-size:0.78rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  transition:background 0.3s;
+}
+.investor-gate-form button:hover{background:var(--saffron-light)}
+.investor-gate-error{font-size:0.85rem;color:#D08868;margin-top:1.2rem}
+
 .investors-hero{
   padding:180px 3.5rem 120px;
   background:var(--earth);position:relative;overflow:hidden;
@@ -783,7 +820,7 @@ footer{
   .story-card.reverse{direction:ltr}
   .phase-row{grid-template-columns:1fr}
   .hero,.research-hero,.investors-hero,.retreat-hero-content,
-  .testimonials-hero,.products-hero,.retreat-intro{padding-left:1.5rem;padding-right:1.5rem}
+  .testimonials-hero,.products-hero,.retreat-intro,.investor-gate{padding-left:1.5rem;padding-right:1.5rem}
   .origin-inner,.home-cta-inner,.signup-inner,.investors-contact-inner,.mission-strip-inner{padding:0 1.5rem}
   footer{padding:40px 1.5rem 28px}
   .footer-links{flex-wrap:wrap;gap:1rem}
@@ -806,7 +843,6 @@ footer{
     <li><a href="#" onclick="showPage('products',this)" data-page="products">Products</a></li>
     <li><a href="#" onclick="showPage('investors',this)" data-page="investors">Investors</a></li>
   </ul>
-  <a href="#" onclick="showPage('investors',this)" class="nav-cta">Partner With Us</a>
 </nav>
 
 
@@ -831,15 +867,15 @@ footer{
       <span class="line2">Ancient <em>Roots.</em></span><br>
       <span class="line3">Modern World.</span>
     </h1>
-    <p class="hero-sub">We are building the world's first research-backed Tibetan medicine retreat centre — where millennia of healing wisdom meets rigorous modern science, and a new global standard of care begins.</p>
+    <p class="hero-sub">We are building a research-backed Tibetan medicine retreat centre — where two thousand years of healing wisdom meet rigorous modern science, and a new standard of care begins.</p>
     <div class="hero-actions">
       <a href="#" onclick="showPage('retreat',null)" class="btn-saffron">Explore the Retreat ↗</a>
-      <a href="#" onclick="showPage('investors',null)" class="btn-earth">Investor Information →</a>
+      <a href="#" onclick="showPage('research',null)" class="btn-earth">Our Research →</a>
     </div>
     <div class="hero-bottom">
       <div class="hero-stat"><span class="num">35+</span><span class="lbl">Years of practice</span></div>
       <div class="hero-stat"><span class="num">3</span><span class="lbl">Planned retreat centres</span></div>
-      <div class="hero-stat"><span class="num">4,000+</span><span class="lbl">Years of Tibetan medicine history</span></div>
+      <div class="hero-stat"><span class="num">2,000+</span><span class="lbl">Years of Tibetan medicine history</span></div>
       <div class="hero-scroll-hint">
         <span>Scroll</span>
         <div class="scroll-line"></div>
@@ -857,13 +893,13 @@ footer{
     <div class="origin-inner" style="position:relative;z-index:2">
       <div class="reveal">
         <div class="label-tag" style="color:var(--saffron-light)">The Origin</div>
-        <blockquote class="origin-quote">"The retreat in Bali was<br>well-intentioned.<br>But the medicine was <em>wrong.</em><br>The standards were wrong.<br>We knew we could<br>do far better."</blockquote>
-        <p class="origin-attr">Drew Fleming, Co-Founder</p>
+        <blockquote class="origin-quote">"I spent a decade<br>studying this medicine —<br>in the Himalayas<br>and in the West.<br>The world needs<br>what this tradition <em>knows.</em>"</blockquote>
+        <p class="origin-attr">Drew McGlathery, Co-Founder & CEO</p>
       </div>
       <div class="reveal reveal-delay-2">
-        <p class="body-text light" style="margin-bottom:1.4em">In 2023, Drew Fleming took a group of clients on a wellness retreat to Bali. The setting was beautiful. The intentions were genuine. But when it came to the actual practice — the herbal formulas, the diagnostic methods, the depth of the healing tradition — it fell short. The products were generic. The medicine wasn't Tibetan. It was theatre.</p>
-        <p class="body-text light" style="margin-bottom:1.4em">He came home with a conviction: that Tibetan medicine — one of the world's most complete and sophisticated healing traditions — deserved an institution worthy of it. One grounded in authentic lineage, led by practitioners of genuine expertise, and held to a standard that both the ancient tradition and modern science could respect.</p>
-        <p class="body-text light">Three Roots was founded on that conviction. Not a retreat company. Not a wellness brand. <strong style="color:var(--parchment);font-weight:400">A movement to bring one of humanity's greatest healing traditions to the people who need it most.</strong></p>
+        <p class="body-text light" style="margin-bottom:1.4em">Three Roots began with a scholar's journey. As a Nehru-Fulbright Senior Scholar, Drew McGlathery spent a decade studying medicine across the Himalayas and the United States — training with some of the finest doctors in both worlds, from leading Western clinicians to the masters of Tibetan medicine at Mentseekhang, the medical institute of His Holiness the Dalai Lama.</p>
+        <p class="body-text light" style="margin-bottom:1.4em">What he found there went far beyond technique. Rooted in Tibetan Buddhism and centuries of meditative practice, this medicine understands the human being as a whole — body, mind, and spirit — with a depth and completeness that changed the course of his life.</p>
+        <p class="body-text light">Three Roots was founded to carry that wisdom forward. Its co-founders share one passion and one commitment: <strong style="color:var(--parchment);font-weight:400">to bring one of humanity's greatest healing traditions to the world — in service of people and the planet.</strong></p>
         <div class="gold-rule" style="margin-top:2.5rem"></div>
       </div>
     </div>
@@ -879,7 +915,8 @@ footer{
     </div>
     <div class="pillars-grid">
       <div class="pillar-card reveal" onclick="showPage('retreat',null)" style="cursor:pointer">
-        <div class="pillar-img retreat" style="background-image:url('images/pillar1.png');background-size:cover;background-position:center;"></div>
+        <!-- Dharamshala photo (drop the supplied image in as images/dharamshala.jpg; pillar1.png shows until then) -->
+        <div class="pillar-img retreat" style="background-image:url('images/dharamshala.jpg'),url('images/pillar1.png');background-size:cover;background-position:center;"></div>
         <div class="pillar-body">
           <p class="pillar-num">01 · The Retreat</p>
           <h3 class="pillar-title">Dharamshala Centre</h3>
@@ -912,7 +949,7 @@ footer{
   <div class="mission-strip">
     <div class="mission-strip-inner reveal">
       <div class="gold-rule center"></div>
-      <p class="mission-pull">"Tibetan medicine is not alternative medicine.<br>It is <em>complete medicine</em> — a 4,000-year tradition of<br>systematic diagnosis, botanical pharmacy, and the<br>treatment of the whole human being."</p>
+      <p class="mission-pull">"Tibetan medicine is <em>complete medicine</em> —<br>a 2,000-year tradition of<br>systematic diagnosis, botanical pharmacy, and the<br>treatment of the whole human being."</p>
       <div class="gold-rule center"></div>
       <p style="font-family:var(--sans);font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);margin-top:1.5rem;text-align:center">Dr. Phuntsog Wangmo · Chief Medical Officer</p>
     </div>
@@ -922,25 +959,25 @@ footer{
   <section class="team">
     <div class="section-wrap">
       <div class="reveal">
-        <div class="label-tag">The Practitioners</div>
+        <div class="label-tag">Medical Leadership</div>
         <h2 class="section-title">Expertise with<br><em>genuine lineage.</em></h2>
       </div>
       <div class="team-grid">
         <div class="team-card reveal reveal-delay-1">
+          <div class="team-photo">
+            <div class="team-photo-inner" style="background:linear-gradient(135deg,#1C2A2A 0%,#2A5040 100%)"></div>
+          </div>
+          <p class="team-name">Drew McGlathery</p>
+          <p class="team-role">Co-Founder & CEO</p>
+          <p class="team-bio">Board-certified psychiatric nurse practitioner and <em>Menpa</em> (Tibetan medicine doctor). Nehru-Fulbright Senior Scholar who researched at Mentseekhang, the Tibetan Medical Institute of His Holiness the Dalai Lama.</p>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
           <div class="team-photo">
             <div class="team-photo-inner" style="background:linear-gradient(135deg,#2A1C14 0%,#6A4028 100%)"></div>
           </div>
           <p class="team-name">Dr. Phuntsog Wangmo</p>
           <p class="team-role">Chief Medical Officer</p>
           <p class="team-bio">35+ years of practice. Trained at the Lhasa Mentsekhang. Co-founder of ATMA. One of the foremost Tibetan doctors practicing in the Western world today.</p>
-        </div>
-        <div class="team-card reveal reveal-delay-2">
-          <div class="team-photo">
-            <div class="team-photo-inner" style="background:linear-gradient(135deg,#1C2A2A 0%,#2A5040 100%)"></div>
-          </div>
-          <p class="team-name">Drew Fleming</p>
-          <p class="team-role">Founder & Director</p>
-          <p class="team-bio">Psychiatric nurse turned Tibetan medicine doctor. Founder of Three Roots. A practitioner who has dedicated his career to bridging ancient healing with modern clinical rigour.</p>
         </div>
         <div class="team-card reveal reveal-delay-3">
           <div class="team-photo">
@@ -963,7 +1000,7 @@ footer{
       <h2 class="home-cta-title">Be part of how<br>the West learns to <em>heal.</em></h2>
       <p class="home-cta-sub">Three Roots is at the pre-opening stage of its flagship retreat centre in Dharamshala, India. We are seeking aligned angel investors to join us at the ground floor of something genuinely new.</p>
       <div class="home-cta-actions">
-        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">View Investor Information</a>
+        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">Enter Investor Portal</a>
         <a href="#" onclick="showPage('retreat',null)" class="btn-outline-light">See the Retreat Centre</a>
       </div>
     </div>
@@ -990,11 +1027,7 @@ footer{
     <div class="retreat-hero-content">
       <p class="retreat-hero-eyebrow">The Flagship Centre · Phase One</p>
       <h1 class="retreat-hero-title">A Sanctuary<br>in the <em>Himalayas.</em></h1>
-      <p class="retreat-hero-sub">Dharamshala, India — home to the Tibetan government in exile, a living community of traditional medicine, and the mountains that have held this knowledge for centuries. This is where Three Roots begins.</p>
-      <div style="display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap">
-        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">Investment Enquiry →</a>
-        <a class="btn-outline-light">Download Prospectus</a>
-      </div>
+      <p class="retreat-hero-sub">Dharamshala, India — home of His Holiness the Dalai Lama, a living community of Tibetan medical knowledge, and the mountains that have held this wisdom for centuries. This is where Three Roots begins.</p>
     </div>
   </section>
 
@@ -1012,7 +1045,7 @@ footer{
           <div class="label-tag">The Vision</div>
           <h2 class="section-title">Where medicine<br>and <em>mountain</em> meet.</h2>
           <div class="gold-rule"></div>
-          <p class="body-text" style="margin-bottom:1.3em">Dharamshala is not an arbitrary choice. It is the seat of the Tibetan government in exile and home to one of the world's most vibrant living communities of traditional Tibetan medicine. We are not building a wellness resort in an exotic location. We are building in the heart of the tradition itself.</p>
+          <p class="body-text" style="margin-bottom:1.3em">Dharamshala was chosen with care. It is the home of His Holiness the Dalai Lama and of one of the world's most vibrant living communities of Tibetan medical knowledge. Building here, in the heart of the tradition, keeps Three Roots close to the teachers, the lineage, and the living practice that give this medicine its depth.</p>
           <p class="body-text" style="margin-bottom:1.3em">Clients will come to Three Roots for a defined residential programme — typically 7 to 21 days — receiving full Tibetan medical consultations, personalised treatment plans, medicinal therapies, yoga instruction, and deep meditation practice.</p>
           <p class="body-text">Every element will be grounded in authentic clinical practice, overseen by practitioners of genuine lineage, and documented for our ongoing research programme.</p>
         </div>
@@ -1032,22 +1065,22 @@ footer{
     <div class="section-wrap" style="margin-top:0">
       <div class="experience-grid reveal reveal-delay-1">
         <div class="exp-card">
-          <div class="exp-icon">⚕</div>
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M2.5 12.5h4.5l2-5.5 3.5 10 2.5-7 1.5 2.5h5"/></svg></div>
           <h3 class="exp-title">Tibetan Medical Consultation</h3>
           <p class="exp-text">Full classical diagnosis — pulse reading, urine analysis, visual and verbal examination. A personalised treatment plan based on your individual constitution and imbalances.</p>
         </div>
         <div class="exp-card">
-          <div class="exp-icon">🌿</div>
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 21V8"/><path d="M12 13c0-3.5 2.5-6 6.5-6 0 3.5-2.5 6-6.5 6z"/><path d="M12 17c0-3-2.2-5-5.5-5 0 3 2.2 5 5.5 5z"/></svg></div>
           <h3 class="exp-title">Medicinal Therapies</h3>
           <p class="exp-text">Authentic medicinal formulas. Medicinal baths, Tibetan massage, golden needle therapy, moxibustion, and compresses — all prescribed and administered by trained doctors.</p>
         </div>
         <div class="exp-card">
-          <div class="exp-icon">☯</div>
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 15c-2 0-4-1.4-4-4 0-2.2 1.6-4.5 4-7 2.4 2.5 4 4.8 4 7 0 2.6-2 4-4 4z"/><path d="M4.5 19c2 1.4 4.7 2 7.5 2s5.5-.6 7.5-2"/></svg></div>
           <h3 class="exp-title">Tibetan Yoga</h3>
           <p class="exp-text">Not fitness yoga. Tibetan Yantra Yoga — an ancient system of movement, breath, and awareness that most Westerners have never encountered. Taught as it was meant to be taught.</p>
         </div>
         <div class="exp-card">
-          <div class="exp-icon">🧘</div>
+          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 19.5A8.5 8.5 0 1 1 14.5 3"/><circle cx="12" cy="11.5" r="2.5"/></svg></div>
           <h3 class="exp-title">Deep Meditation</h3>
           <p class="exp-text">The Tibetan meditation tradition is among the world's most sophisticated. Taught progressively, in its proper context, by practitioners who have devoted decades to its study.</p>
         </div>
@@ -1065,25 +1098,31 @@ footer{
       <div class="roadmap-steps reveal reveal-delay-1">
         <div class="roadmap-step">
           <div class="roadmap-num">I</div>
-          <p class="roadmap-year">2025–2026</p>
+          <p class="roadmap-year">2027</p>
           <h4 class="roadmap-label">Dharamshala, India</h4>
           <p class="roadmap-detail">Flagship centre. Full residential programme. In-house research begins. Partnerships with local Tibetan medical institutions established.</p>
         </div>
         <div class="roadmap-step">
           <div class="roadmap-num">II</div>
-          <p class="roadmap-year">2027–2028</p>
-          <h4 class="roadmap-label">Bhutan</h4>
-          <p class="roadmap-detail">The only country where Tibetan medicine is national healthcare. Second centre in Bhutan, leveraging established connections with government and medical institutions.</p>
+          <p class="roadmap-year">2028</p>
+          <h4 class="roadmap-label">Tenerife, Canary Islands</h4>
+          <p class="roadmap-detail">A European sanctuary in the Atlantic — year-round climate and world-class accessibility, bringing the Three Roots programme within reach of Western Europe.</p>
         </div>
         <div class="roadmap-step">
           <div class="roadmap-num">III</div>
-          <p class="roadmap-year">2028–2029</p>
-          <h4 class="roadmap-label">Western Outposts</h4>
-          <p class="roadmap-detail">Satellite clinics and urban programmes in Europe and the US, supported by our own accredited products and the research base built in Phase I and II.</p>
+          <p class="roadmap-year">2029</p>
+          <h4 class="roadmap-label">New York, USA</h4>
+          <p class="roadmap-detail">An urban centre in the heart of the Western world — consultations, therapies, and education for the United States.</p>
         </div>
         <div class="roadmap-step">
           <div class="roadmap-num">IV</div>
-          <p class="roadmap-year">2030+</p>
+          <p class="roadmap-year">2030</p>
+          <h4 class="roadmap-label">Bhutan</h4>
+          <p class="roadmap-detail">The only country where Tibetan medicine is part of national healthcare. A Himalayan centre built on deep connections with Bhutanese medical institutions.</p>
+        </div>
+        <div class="roadmap-step">
+          <div class="roadmap-num">V</div>
+          <p class="roadmap-year">Beyond</p>
           <h4 class="roadmap-label">Global Network</h4>
           <p class="roadmap-detail">A recognised global institution for Tibetan medicine — retreat, research, product, and education verticals all operating under the Three Roots standard.</p>
         </div>
@@ -1092,17 +1131,6 @@ footer{
   </section>
 
   <div class="prayer-flags"><span class="pf-yellow"></span><span class="pf-green"></span><span class="pf-red"></span><span class="pf-white"></span><span class="pf-blue"></span></div>
-
-  <section class="home-cta">
-    <div class="home-cta-inner reveal" style="text-align:center">
-      <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">Join the Vision</div>
-      <h2 class="home-cta-title">Ready to bring this<br>to <em>Dharamshala?</em></h2>
-      <p class="home-cta-sub">We are actively seeking aligned investors to fund the build-out of our flagship centre. Early partners receive privileged access to our programme, research, and network.</p>
-      <div class="home-cta-actions">
-        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">Investment Information →</a>
-      </div>
-    </div>
-  </section>
 </div>
 
 
@@ -1126,7 +1154,7 @@ footer{
       <div class="label-tag">Our Research</div>
       <h1 class="research-hero-title">Ancient knowledge.<br><em>Modern evidence.</em><br>Uncompromised standards.</h1>
       <div class="gold-rule"></div>
-      <p class="body-text" style="max-width:520px">Tibetan medicine does not need to be proven — it has been practised and refined for 4,000 years. But for it to reach the people who need it in the West, it must speak the language of evidence. That is what our research programme does.</p>
+      <p class="body-text" style="max-width:520px">Tibetan medicine has been practised and refined for more than 2,000 years. For it to reach the people who need it in the West, it must also speak the language of evidence — and that is the work of our research programme.</p>
     </div>
   </section>
 
@@ -1181,10 +1209,10 @@ footer{
       <div class="standards-inner">
         <div class="reveal">
           <div class="label-tag" style="color:var(--saffron-light)">Our Standard</div>
-          <h2 class="section-title light">Not alternative.<br><em>Complementary.</em><br>Fully accredited.</h2>
+          <h2 class="section-title light">Complementary<br><em>medicine,</em><br>fully accredited.</h2>
           <div class="gold-rule"></div>
           <p class="body-text light" style="margin-bottom:1.3em">Our long-term goal is the accreditation of our in-house manufacturing processes to Western GMP (Good Manufacturing Practice) standards — enabling the international distribution of authentic Tibetan medicinal products for the first time.</p>
-          <p class="body-text light">This is not a small ambition. It has never been done. It requires a sustained programme of research, regulatory engagement, and institutional relationship-building. Three Roots is built to do exactly that.</p>
+          <p class="body-text light">It is an ambition worthy of the tradition itself — a sustained programme of research, regulatory engagement, and institutional relationship-building. Three Roots was built for exactly this work.</p>
         </div>
         <div class="reveal reveal-delay-2">
           <div class="standard-list">
@@ -1239,7 +1267,6 @@ footer{
         <span style="position:absolute;bottom:16px;left:20px;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,232,212,0.5)">Bali Retreat, 2023</span>
       </div>
       <div class="story-body">
-        <div class="story-stars">★★★★★</div>
         <p class="story-quote">"I had tried everything — acupuncture, functional medicine, three different psychiatrists. My nervous system just wouldn't settle. After ten days with Dr. Phuntsog, something shifted that I still cannot fully explain but can absolutely feel."</p>
         <div class="story-rule"></div>
         <p class="story-name">Sarah M.</p>
@@ -1253,7 +1280,6 @@ footer{
         <span style="position:absolute;bottom:16px;right:20px;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,232,212,0.5)">Individual Consultation, 2024</span>
       </div>
       <div class="story-body">
-        <div class="story-stars">★★★★★</div>
         <p class="story-quote">"I came in total scepticism. I left having experienced one of the most precise diagnostic encounters of my life. The pulse reading alone identified things my GP had missed for years. The Tibetan approach to chronic illness is genuinely different."</p>
         <div class="story-rule"></div>
         <p class="story-name">James K.</p>
@@ -1267,7 +1293,6 @@ footer{
         <span style="position:absolute;bottom:16px;left:20px;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,232,212,0.5)">Group Programme, 2024</span>
       </div>
       <div class="story-body">
-        <div class="story-stars">★★★★★</div>
         <p class="story-quote">"The yoga they teach is like nothing I've encountered in fifteen years of practice. It's not exercise — it's medicine delivered through movement. And the meditation instruction goes to places most teachers simply don't know exist."</p>
         <div class="story-rule"></div>
         <p class="story-name">Meera P.</p>
@@ -1465,157 +1490,23 @@ footer{
 ═══════════════════════════════════════════════════════ -->
 <div id="page-investors" class="page">
 
-  <section class="investors-hero">
-    <svg class="investors-hero-mandala" viewBox="0 0 600 600" fill="none">
-      <circle cx="300" cy="300" r="280" stroke="#C48828" stroke-width="0.5"/>
-      <circle cx="300" cy="300" r="220" stroke="#C48828" stroke-width="0.5"/>
-      <circle cx="300" cy="300" r="160" stroke="#C48828" stroke-width="0.5"/>
-      <polygon points="300,20 570,440 30,440" stroke="#C48828" stroke-width="0.4" fill="none"/>
-      <polygon points="300,580 570,160 30,160" stroke="#C48828" stroke-width="0.4" fill="none"/>
-    </svg>
-    <div class="section-wrap">
-      <div class="reveal">
-        <div class="label-tag" style="color:var(--saffron-light)">For Investors</div>
-        <h1 class="investors-hero-title">A category-defining<br>opportunity in<br><em>integrative medicine.</em></h1>
-        <p class="investors-hero-sub">The global wellness industry is worth $5.6 trillion. Tibetan medicine has never had a credible, research-backed, institutionalised entry into it. Until now.</p>
-        <div class="investors-hero-actions">
-          <a href="#inv-contact" onclick="document.getElementById('inv-contact').scrollIntoView({behavior:'smooth'})" class="btn-saffron">Request Full Prospectus</a>
-          <a class="btn-outline-light">Schedule a Call</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="prayer-flags"><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-red"></span><span class="pf-green"></span><span class="pf-yellow"></span></div>
-
-  <!-- Opportunity -->
-  <section class="opportunity">
-    <div class="section-wrap">
-      <div class="reveal">
-        <div class="label-tag">The Market</div>
-        <h2 class="section-title">Why this.<br><em>Why now.</em></h2>
-      </div>
-      <div class="opportunity-grid">
-        <div class="opp-card reveal">
-          <p class="opp-num">$5.6T</p>
-          <p class="opp-label">Global Wellness Market</p>
-          <p class="opp-desc">The largest consumer category in the world, growing at 10%+ annually. Authentic, tradition-rooted, evidence-backed offerings command premium positioning.</p>
-        </div>
-        <div class="opp-card reveal reveal-delay-1">
-          <p class="opp-num">Zero</p>
-          <p class="opp-label">Comparable Competitors</p>
-          <p class="opp-desc">No institution currently exists that combines authentic Tibetan medical practice, in-house clinical research, and a pathway to accredited Western product distribution. This space is unoccupied.</p>
-        </div>
-        <div class="opp-card reveal reveal-delay-2">
-          <p class="opp-num">4,000</p>
-          <p class="opp-label">Years of Proven Practice</p>
-          <p class="opp-desc">Tibetan medicine is not a trend. It is one of the world's most complete and systematically developed healing traditions — with a clinical record spanning millennia.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Phases -->
-  <section class="phases">
-    <div class="section-wrap">
-      <div class="reveal">
-        <div class="label-tag">Investment Phases</div>
-        <h2 class="section-title">How capital<br><em>builds the vision.</em></h2>
-      </div>
-      <div class="phase-grid reveal reveal-delay-1">
-        <div class="phase-row">
-          <div><p class="phase-period">Phase I</p></div>
-          <div>
-            <p class="phase-content-title">Dharamshala Retreat Centre</p>
-            <p class="phase-content-text">Land, build-out, operational setup, staff, programme development, and initial research infrastructure. Target opening: 2026.</p>
-          </div>
-          <div><p class="phase-amount">Seed Round</p></div>
-        </div>
-        <div class="phase-row">
-          <div><p class="phase-period">Phase II</p></div>
-          <div>
-            <p class="phase-content-title">Research Programme & Bhutan Expansion</p>
-            <p class="phase-content-text">In-house research centre, scientific advisory appointments, Bhutan centre feasibility and development. Western clinic pilots.</p>
-          </div>
-          <div><p class="phase-amount">Series A</p></div>
-        </div>
-        <div class="phase-row">
-          <div><p class="phase-period">Phase III</p></div>
-          <div>
-            <p class="phase-content-title">Product Development & Global Clinics</p>
-            <p class="phase-content-text">GMP manufacturing facility, Western regulatory submissions, product launch, urban clinic network in Europe and USA.</p>
-          </div>
-          <div><p class="phase-amount">Series B</p></div>
-        </div>
-        <div class="phase-row">
-          <div><p class="phase-period">Phase IV</p></div>
-          <div>
-            <p class="phase-content-title">Global Institution</p>
-            <p class="phase-content-text">Full network of retreat centres, established product business, education and training programmes, recognised research institution.</p>
-          </div>
-          <div><p class="phase-amount">Growth</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What investors get -->
-  <section style="padding:120px 0;background:var(--parchment)">
-    <div class="section-wrap">
-      <div class="reveal">
-        <div class="label-tag">What You Receive</div>
-        <h2 class="section-title">Beyond the<br><em>financial return.</em></h2>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px">
-        <div class="opp-card reveal" style="background:var(--parchment-mid)">
-          <p class="opp-num" style="font-size:2rem">Equity</p>
-          <p class="opp-label">Ownership Stake</p>
-          <p class="opp-desc">Meaningful equity in an institution being built to define a new category — with long-term value in the retreat, research, and product verticals.</p>
-        </div>
-        <div class="opp-card reveal reveal-delay-1" style="background:var(--parchment-mid)">
-          <p class="opp-num" style="font-size:2rem">Access</p>
-          <p class="opp-label">Priority Programme Access</p>
-          <p class="opp-desc">Early investors receive privileged access to our retreat programmes, research findings, and the Three Roots practitioner network.</p>
-        </div>
-        <div class="opp-card reveal" style="background:var(--parchment-mid)">
-          <p class="opp-num" style="font-size:2rem">Story</p>
-          <p class="opp-label">Part of Something Rare</p>
-          <p class="opp-desc">The chance to be at the founding of an institution that brings genuine, profound healing to a world that desperately needs a better approach to health.</p>
-        </div>
-        <div class="opp-card reveal reveal-delay-1" style="background:var(--parchment-mid)">
-          <p class="opp-num" style="font-size:2rem">Impact</p>
-          <p class="opp-label">Category-Defining Legacy</p>
-          <p class="opp-desc">Three Roots will be the institution that opened the door. Investors at this stage are part of that founding narrative — permanently.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact form -->
-  <section class="investors-contact" id="inv-contact">
-    <div class="investors-contact-inner">
-      <div class="reveal">
-        <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">Begin the Conversation</div>
-        <h2 class="investors-contact-title">We are selective.<br><em>Tell us about yourself.</em></h2>
-        <div class="gold-rule center"></div>
-        <p style="font-size:1rem;color:rgba(242,232,212,0.55);line-height:1.8;font-weight:300;margin-bottom:0.5rem">We are looking for aligned investors — people who believe in this mission as much as the financial opportunity. We will respond to every enquiry personally.</p>
-      </div>
-      <form class="inv-form reveal reveal-delay-1">
-        <input type="text"  placeholder="Full name">
-        <input type="email" placeholder="Email address">
-        <input type="text"  placeholder="Organisation / background">
-        <select>
-          <option value="">Investment consideration range</option>
-          <option>Under $100K</option>
-          <option>$100K – $500K</option>
-          <option>$500K – $2M</option>
-          <option>$2M+</option>
-          <option>Prefer not to say at this stage</option>
-        </select>
-        <textarea placeholder="Tell us what drew you to Three Roots and what you're looking for in this investment…"></textarea>
-        <button type="submit">Submit Enquiry →</button>
+  <section class="investor-gate">
+    <div id="investor-gate-lock" class="investor-gate-inner reveal">
+      <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">Three Roots</div>
+      <h1 class="investor-gate-title">Investor <em>Access</em></h1>
+      <div class="gold-rule center"></div>
+      <p class="investor-gate-text">This section is reserved for approved investors. Please enter your password or contact Three Roots to request access.</p>
+      <form class="investor-gate-form" onsubmit="return checkInvestorPassword(event)">
+        <input type="password" id="investor-password" placeholder="Password" autocomplete="off" aria-label="Investor password">
+        <button type="submit">Enter →</button>
       </form>
-      <p class="inv-note">All enquiries handled in strict confidence. We respond within 3 business days.</p>
+      <p id="investor-gate-error" class="investor-gate-error" style="display:none">Incorrect password. Please contact Three Roots to request access.</p>
+    </div>
+    <div id="investor-portal" class="investor-gate-inner" style="display:none">
+      <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">Three Roots</div>
+      <h1 class="investor-gate-title">Investor <em>Portal</em></h1>
+      <div class="gold-rule center"></div>
+      <p class="investor-gate-text">Welcome. Investor materials are being finalised and will be available here shortly.</p>
     </div>
   </section>
 
@@ -1637,7 +1528,7 @@ footer{
     <li><a href="#" onclick="showPage('products',null)">Products</a></li>
     <li><a href="#" onclick="showPage('investors',null)">Investors</a></li>
   </ul>
-  <p class="footer-copy">© 2026 Three Roots Ltd. All rights reserved. Dharamshala · Bhutan · The World.<br><span style="opacity:0.6;font-size:0.68rem">* Tibetan medicine is a traditional healing system. Nothing on this site constitutes medical advice. Consult a qualified practitioner.</span></p>
+  <p class="footer-copy">© 2026 Three Roots Ltd. All rights reserved. Dharamshala · Bhutan · The World.<br><span style="opacity:0.6;font-size:0.68rem">(*) This statement has not been evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat, cure or prevent any disease.</span></p>
 </footer>
 
 
@@ -1701,8 +1592,27 @@ footer{
   }
   runReveals();
 
+  // ─── INVESTOR ACCESS GATE ───
+  // Soft client-side gate. Set the access password here before sharing with investors.
+  const INVESTOR_PORTAL_PASSWORD = 'ThreeRoots2026';
+  function checkInvestorPassword(e) {
+    e.preventDefault();
+    const input = document.getElementById('investor-password');
+    const error = document.getElementById('investor-gate-error');
+    if (input.value === INVESTOR_PORTAL_PASSWORD) {
+      document.getElementById('investor-gate-lock').style.display = 'none';
+      document.getElementById('investor-portal').style.display = 'block';
+      error.style.display = 'none';
+    } else {
+      error.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+    return false;
+  }
+
   // ─── FORM SUBMIT ───
-  document.querySelectorAll('form').forEach(form => {
+  document.querySelectorAll('form:not(.investor-gate-form)').forEach(form => {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
