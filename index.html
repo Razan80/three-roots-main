@@ -96,35 +96,35 @@ nav{
 .section-wrap{max-width:1140px;margin:0 auto;padding:0 3.5rem}
 
 .btn-saffron{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  font-family:var(--sans);font-size:0.82rem;font-weight:600;
-  letter-spacing:0.08em;text-transform:uppercase;
+  display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.72rem;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;
   color:var(--white);background:var(--saffron);
-  padding:0.9rem 2.2rem;border-radius:3px;text-decoration:none;
-  border:1px solid var(--saffron);transition:all 0.25s;
+  padding:1.05rem 2.6rem;border-radius:0;text-decoration:none;
+  border:1px solid var(--saffron);transition:all 0.3s ease;
 }
-.btn-saffron:hover{background:var(--saffron-light);transform:translateY(-2px)}
+.btn-saffron:hover{background:var(--saffron-light);border-color:var(--saffron-light)}
 .btn-earth{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  font-family:var(--sans);font-size:0.82rem;font-weight:600;
-  letter-spacing:0.08em;text-transform:uppercase;
+  display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.72rem;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;
   color:var(--earth);background:transparent;
-  padding:0.9rem 2.2rem;border-radius:3px;text-decoration:none;
-  border:1px solid rgba(28,56,40,0.35);transition:all 0.25s;
+  padding:1.05rem 2.6rem;border-radius:0;text-decoration:none;
+  border:1px solid rgba(28,56,40,0.4);transition:all 0.3s ease;
 }
 .btn-earth:hover{background:rgba(28,56,40,0.06);border-color:var(--earth)}
 .btn-outline-light{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  font-family:var(--sans);font-size:0.82rem;font-weight:500;
-  letter-spacing:0.08em;text-transform:uppercase;
+  display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;
+  font-family:var(--sans);font-size:0.72rem;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;
   color:var(--parchment);background:transparent;
-  padding:0.9rem 2.2rem;border-radius:3px;text-decoration:none;
-  border:1px solid rgba(242,232,212,0.4);transition:all 0.25s;
+  padding:1.05rem 2.6rem;border-radius:0;text-decoration:none;
+  border:1px solid rgba(242,232,212,0.4);transition:all 0.3s ease;
 }
 .btn-outline-light:hover{border-color:var(--parchment);background:rgba(242,232,212,0.08)}
 
 /* Prayer flags strip */
-.prayer-flags{display:flex;height:4px;width:100%}
+.prayer-flags{display:flex;height:3px;width:100%;opacity:0.75}
 .prayer-flags span{flex:1}
 .pf-blue{background:#2255AA}
 .pf-white{background:#F5F0E8}
@@ -206,7 +206,7 @@ nav{
   opacity:0;animation:fadeUp 0.9s ease 0.7s forwards;
 }
 .hero-actions{
-  display:flex;gap:1rem;align-items:center;margin-top:3rem;
+  display:flex;gap:1rem;align-items:center;margin-top:3rem;flex-wrap:wrap;
   opacity:0;animation:fadeUp 0.9s ease 0.9s forwards;
 }
 .hero-bottom{
@@ -376,14 +376,12 @@ nav{
 }
 .retreat-hero-title {
   font-family:var(--serif);font-size:clamp(3rem,6vw,6rem);
-  font-weight:300;line-height:1.05;color:var(--earth);
-  text-shadow: 0 0 20px rgba(255,255,255,0.7);
+  font-weight:300;line-height:1.05;color:var(--parchment);
   letter-spacing:-0.02em;
 }
-.retreat-hero-title em {color:var(--saffron);font-style:italic}
+.retreat-hero-title em {color:var(--saffron-light);font-style:italic}
 .retreat-hero-sub {
-  font-size:1.1rem;color:var(--earth);
-  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+  font-size:1.1rem;color:rgba(242,232,212,0.85);
   line-height:1.8;font-weight:300;margin-top:1.5rem;max-width:520px;
 }
 
@@ -419,13 +417,14 @@ nav{
   cursor:default;
 }
 .exp-card:hover{background:rgba(196,136,40,0.08)}
-.exp-icon{
-  width:48px;height:48px;
-  border:1px solid var(--saffron-border);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  margin-bottom:24px;
+.exp-num{
+  font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;
+  color:var(--saffron-light);line-height:1;margin-bottom:26px;
 }
-.exp-icon svg{width:22px;height:22px;stroke:var(--saffron);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.exp-num::after{
+  content:'';display:block;width:32px;height:1px;
+  background:var(--saffron-border);margin-top:16px;
+}
 .exp-title{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--parchment);margin-bottom:12px}
 .exp-text{font-size:0.92rem;line-height:1.8;color:rgba(242,232,212,0.6);font-weight:300}
 
@@ -632,7 +631,8 @@ nav{
   border-top:2px solid transparent;transition:all 0.3s;cursor:default;
 }
 .cat-card:hover{border-top-color:var(--saffron);background:var(--white)}
-.cat-icon{font-size:1.8rem;margin-bottom:18px}
+.cat-num{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--saffron);line-height:1;margin-bottom:18px}
+.cat-num::after{content:'';display:block;width:32px;height:1px;background:var(--saffron-border);margin-top:14px}
 .cat-title{font-family:var(--serif);font-size:1.25rem;color:var(--earth);margin-bottom:10px}
 .cat-desc{font-size:0.88rem;line-height:1.75;color:var(--text-mid);font-weight:300}
 .cat-status{
@@ -814,8 +814,6 @@ footer{
   .section-wrap{padding:0 1.5rem}
   .pillars-grid,.experience-grid,.areas-grid,.team-grid,.products-grid,
   .opportunity-grid,.cat-grid,.quotes-grid,.video-grid{grid-template-columns:1fr}
-  .roadmap-steps,.roadmap-steps::before{display:none}
-  .roadmap-steps-mobile{display:flex;flex-direction:column;gap:24px}
   .philosophy-grid,.retreat-intro-grid,.standards-inner,.story-card{grid-template-columns:1fr}
   .story-card.reverse{direction:ltr}
   .phase-row{grid-template-columns:1fr}
@@ -824,6 +822,37 @@ footer{
   .origin-inner,.home-cta-inner,.signup-inner,.investors-contact-inner,.mission-strip-inner{padding:0 1.5rem}
   footer{padding:40px 1.5rem 28px}
   .footer-links{flex-wrap:wrap;gap:1rem}
+
+  /* Hero: stack CTAs full-width, wrap stats, hide scroll hint */
+  .hero{padding-top:7rem;padding-bottom:3.5rem}
+  .hero-headline{font-size:2.7rem}
+  .hero-headline .line2{padding-left:1rem}
+  .hero-headline .line3{padding-left:2rem}
+  .home-cta{background-attachment:scroll !important}
+  .hero-actions{flex-direction:column;align-items:stretch;width:100%;max-width:380px}
+  .hero-bottom{flex-wrap:wrap;gap:1.6rem 2.2rem;margin-top:3.5rem;padding-top:2rem}
+  .hero-stat .num{font-size:2rem}
+  .hero-scroll-hint{display:none}
+
+  /* Origin: single compact column */
+  .origin{padding:64px 0}
+  .origin-inner{grid-template-columns:1fr;gap:40px}
+  .origin-quote{font-size:1.55rem;line-height:1.35}
+  .origin-quote br{display:none}
+  .origin-attr{margin-top:1.2rem}
+
+  /* Roadmap: vertical timeline */
+  .roadmap{padding:90px 0}
+  .roadmap-steps{grid-template-columns:1fr;gap:44px}
+  .roadmap-steps::before{display:none}
+  .roadmap-step{padding:0;text-align:left;display:grid;grid-template-columns:56px 1fr;column-gap:20px}
+  .roadmap-num{width:56px;height:56px;margin:0;grid-row:1 / span 3;font-size:1.2rem}
+  .roadmap-year,.roadmap-label,.roadmap-detail{grid-column:2}
+
+  /* Section breathing room */
+  .pillars,.team{padding:90px 0}
+  .experience{padding:90px 0}
+  .exp-card{padding:40px 26px}
 }
 </style>
 </head>
@@ -869,8 +898,8 @@ footer{
     </h1>
     <p class="hero-sub">We are building a research-backed Tibetan medicine retreat centre — where two thousand years of healing wisdom meet rigorous modern science, and a new standard of care begins.</p>
     <div class="hero-actions">
-      <a href="#" onclick="showPage('retreat',null)" class="btn-saffron">Explore the Retreat ↗</a>
-      <a href="#" onclick="showPage('research',null)" class="btn-earth">Our Research →</a>
+      <a href="#" onclick="showPage('retreat',null)" class="btn-saffron">Explore the Retreat</a>
+      <a href="#" onclick="showPage('research',null)" class="btn-earth">Our Research</a>
     </div>
     <div class="hero-bottom">
       <div class="hero-stat"><span class="num">35+</span><span class="lbl">Years of practice</span></div>
@@ -915,8 +944,7 @@ footer{
     </div>
     <div class="pillars-grid">
       <div class="pillar-card reveal" onclick="showPage('retreat',null)" style="cursor:pointer">
-        <!-- Dharamshala photo (drop the supplied image in as images/dharamshala.jpg; pillar1.png shows until then) -->
-        <div class="pillar-img retreat" style="background-image:url('images/dharamshala.jpg'),url('images/pillar1.png');background-size:cover;background-position:center;"></div>
+        <div class="pillar-img retreat" style="background-image:url('images/Dharamshala.jpg');background-size:cover;background-position:center;"></div>
         <div class="pillar-body">
           <p class="pillar-num">01 · The Retreat</p>
           <h3 class="pillar-title">Dharamshala Centre</h3>
@@ -1065,22 +1093,22 @@ footer{
     <div class="section-wrap" style="margin-top:0">
       <div class="experience-grid reveal reveal-delay-1">
         <div class="exp-card">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M2.5 12.5h4.5l2-5.5 3.5 10 2.5-7 1.5 2.5h5"/></svg></div>
+          <div class="exp-num">I</div>
           <h3 class="exp-title">Tibetan Medical Consultation</h3>
           <p class="exp-text">Full classical diagnosis — pulse reading, urine analysis, visual and verbal examination. A personalised treatment plan based on your individual constitution and imbalances.</p>
         </div>
         <div class="exp-card">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 21V8"/><path d="M12 13c0-3.5 2.5-6 6.5-6 0 3.5-2.5 6-6.5 6z"/><path d="M12 17c0-3-2.2-5-5.5-5 0 3 2.2 5 5.5 5z"/></svg></div>
+          <div class="exp-num">II</div>
           <h3 class="exp-title">Medicinal Therapies</h3>
           <p class="exp-text">Authentic medicinal formulas. Medicinal baths, Tibetan massage, golden needle therapy, moxibustion, and compresses — all prescribed and administered by trained doctors.</p>
         </div>
         <div class="exp-card">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 15c-2 0-4-1.4-4-4 0-2.2 1.6-4.5 4-7 2.4 2.5 4 4.8 4 7 0 2.6-2 4-4 4z"/><path d="M4.5 19c2 1.4 4.7 2 7.5 2s5.5-.6 7.5-2"/></svg></div>
+          <div class="exp-num">III</div>
           <h3 class="exp-title">Tibetan Yoga</h3>
           <p class="exp-text">Not fitness yoga. Tibetan Yantra Yoga — an ancient system of movement, breath, and awareness that most Westerners have never encountered. Taught as it was meant to be taught.</p>
         </div>
         <div class="exp-card">
-          <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 19.5A8.5 8.5 0 1 1 14.5 3"/><circle cx="12" cy="11.5" r="2.5"/></svg></div>
+          <div class="exp-num">IV</div>
           <h3 class="exp-title">Deep Meditation</h3>
           <p class="exp-text">The Tibetan meditation tradition is among the world's most sophisticated. Taught progressively, in its proper context, by practitioners who have devoted decades to its study.</p>
         </div>
@@ -1439,25 +1467,25 @@ footer{
       </div>
       <div class="cat-grid">
         <div class="cat-card reveal">
-          <div class="cat-icon">🌿</div>
+          <div class="cat-num">I</div>
           <h3 class="cat-title">Herbal Formulas</h3>
           <p class="cat-desc">Classical multi-herb preparations in traditional pill, powder, and decoction forms. Prescribed by qualified Tibetan doctors following consultation.</p>
           <span class="cat-status">Research Phase</span>
         </div>
         <div class="cat-card reveal reveal-delay-1">
-          <div class="cat-icon">🛁</div>
+          <div class="cat-num">II</div>
           <h3 class="cat-title">Medicinal Bath Preparations</h3>
           <p class="cat-desc">Classical five-root and seven-branch medicinal bath formulas for home use — a simplified delivery of one of Tibetan medicine's most powerful external treatments.</p>
           <span class="cat-status">In Development</span>
         </div>
         <div class="cat-card reveal reveal-delay-2">
-          <div class="cat-icon">🫙</div>
+          <div class="cat-num">III</div>
           <h3 class="cat-title">Topical Preparations</h3>
           <p class="cat-desc">Medicated oils, compresses, and external applications derived from classical Tibetan medicine formulas — studied and standardised for Western market compliance.</p>
           <span class="cat-status">Concept Stage</span>
         </div>
         <div class="cat-card reveal reveal-delay-3">
-          <div class="cat-icon">📚</div>
+          <div class="cat-num">IV</div>
           <h3 class="cat-title">Practitioner Line</h3>
           <p class="cat-desc">A professional line of formulas for distribution through qualified Western practitioners trained in Tibetan medicine — ensuring responsible clinical use.</p>
           <span class="cat-status">Long-Term Vision</span>
@@ -1498,7 +1526,7 @@ footer{
       <p class="investor-gate-text">This section is reserved for approved investors. Please enter your password or contact Three Roots to request access.</p>
       <form class="investor-gate-form" onsubmit="return checkInvestorPassword(event)">
         <input type="password" id="investor-password" placeholder="Password" autocomplete="off" aria-label="Investor password">
-        <button type="submit">Enter →</button>
+        <button type="submit">Enter</button>
       </form>
       <p id="investor-gate-error" class="investor-gate-error" style="display:none">Incorrect password. Please contact Three Roots to request access.</p>
     </div>
