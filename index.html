@@ -358,9 +358,6 @@ nav{
   display:flex;align-items:flex-end;
   background:none;position:relative;
 }
-.retreat-hero-mountains{
-  position:absolute;bottom:0;left:0;right:0;pointer-events:none;opacity:0.25;
-}
 .retreat-hero-overlay{
   position:absolute;inset:0;
   background:linear-gradient(to top,rgba(10,20,14,0.95) 0%,rgba(10,20,14,0.3) 60%,transparent 100%);
@@ -953,7 +950,7 @@ footer{
         </div>
       </div>
       <div class="pillar-card reveal reveal-delay-1" onclick="showPage('research',null)" style="cursor:pointer">
-        <div class="pillar-img research" style="background-image:url('images/pillar3.png');background-size:cover;background-position:center;"></div>
+        <div class="pillar-img research" style="background-image:url('images/research.jpg'),url('https://images.squarespace-cdn.com/content/v1/66dc6ecfaa06215e48962e38/1733125200303-75YLQ9FDH8VNIIMTM5HB/unsplash-image-uMbGXBy7bKs.jpg'),linear-gradient(160deg,#2A2018 0%,#5A4030 55%,#9A7848 100%);background-size:cover;background-position:center;"></div>
         <div class="pillar-body">
           <p class="pillar-num">02 · The Research</p>
           <h3 class="pillar-title">Evidence-Based Medicine</h3>
@@ -962,7 +959,7 @@ footer{
         </div>
       </div>
       <div class="pillar-card reveal reveal-delay-2" onclick="showPage('products',null)" style="cursor:pointer">
-        <div class="pillar-img products" style="background-image:url('images/pillar2.png');background-size:cover;background-position:center;"></div>
+        <div class="pillar-img products" style="background-image:url('images/products.jpg'),url('https://images.squarespace-cdn.com/content/v1/66dc6ecfaa06215e48962e38/1733126308924-C5QQLYC52GLSXKH3ERBJ/unsplash-image-cU53ZFBr3lk.jpg'),linear-gradient(160deg,#2A1418 0%,#6A2030 55%,#A44828 100%);background-size:cover;background-position:center;"></div>
         <div class="pillar-body">
           <p class="pillar-num">03 · The Products</p>
           <h3 class="pillar-title">Accredited Products</h3>
@@ -1045,12 +1042,6 @@ footer{
 <div id="page-retreat" class="page">
   <section class="retreat-hero" style="background:none;position:relative">
   <div style="position:absolute;inset:0;background-image:url('images/retreats-bg.png');background-size:cover;background-position:center;z-index:0"></div>
-  <canvas id="retreat-hero-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-    <!-- Mountain silhouette -->
-    <svg class="retreat-hero-mountains" viewBox="0 0 1440 200" preserveAspectRatio="none">
-      <path d="M0,200 L0,140 L180,60 L360,120 L480,40 L620,100 L720,20 L840,90 L960,30 L1080,80 L1200,50 L1320,110 L1440,70 L1440,200 Z" fill="rgba(10,20,14,0.5)"/>
-      <path d="M0,200 L0,160 L240,100 L400,150 L520,80 L680,130 L780,60 L900,120 L1020,70 L1140,110 L1280,80 L1440,120 L1440,200 Z" fill="rgba(10,20,14,0.35)"/>
-    </svg>
     <div class="retreat-hero-overlay"></div>
     <div class="retreat-hero-content">
       <p class="retreat-hero-eyebrow">The Flagship Centre · Phase One</p>
