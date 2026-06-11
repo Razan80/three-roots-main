@@ -212,19 +212,17 @@ nav{
 .hero-bottom{
   display:flex;align-items:flex-end;gap:4rem;
   margin-top:5rem;padding-top:2.5rem;
-  border-top:1px solid rgba(242,232,212,0.35);
+  border-top:1px solid var(--saffron-border);
   opacity:0;animation:fadeUp 0.8s ease 1.1s forwards;
 }
 .hero-stat .num{
   font-family:var(--serif);font-size:2.6rem;font-weight:300;
-  color:var(--parchment);line-height:1;display:block;
-  text-shadow:0 1px 4px rgba(0,0,0,0.5);
+  color:var(--earth);line-height:1;display:block;
 }
 .hero-stat .lbl{
   font-family:var(--sans);font-size:0.7rem;font-weight:500;
   letter-spacing:0.12em;text-transform:uppercase;
-  color:rgba(242,232,212,0.8);margin-top:0.3rem;display:block;
-  text-shadow:0 1px 3px rgba(0,0,0,0.4);
+  color:var(--text-mid);margin-top:0.3rem;display:block;
 }
 .hero-scroll-hint{
   margin-left:auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem;
@@ -884,6 +882,7 @@ footer{
   <canvas id="hero-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.6;"></canvas>
   <div class="hero-real-bg" style="position:absolute;inset:0;background-image:url('images/hero-himalayas.png');background-size:cover;background-position:center;z-index:0"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(242,232,212,1) 0%, rgba(242,232,212,0.95) 20%, rgba(242,232,212,0.7) 45%, rgba(242,232,212,0.2) 75%, transparent 100%);z-index:0;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(242,232,212,1) 0%, rgba(242,232,212,0.9) 12%, rgba(242,232,212,0.5) 25%, transparent 45%);z-index:0;"></div>
     
     <div class="hero-saffron-edge"></div>
     <!-- Mandala SVG -->
