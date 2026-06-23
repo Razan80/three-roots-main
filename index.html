@@ -851,25 +851,259 @@ footer{
   .experience{padding:90px 0}
   .exp-card{padding:40px 26px}
 }
+
+/* ════════════════════════════════════════════════════════════
+   AMAN-STYLE LAYOUT  —  Home page, nav & footer redesign
+   (Three Roots parchment / earth / saffron palette retained)
+════════════════════════════════════════════════════════════ */
+
+/* ─── NAV: centered logo, menu trigger + reserve ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 40px;
+  background:rgba(242,232,212,0.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(196,136,40,0.18);
+}
+.nav-left{display:flex;align-items:center;gap:24px}
+.menu-btn{display:flex;align-items:center;gap:10px;background:none;border:none;
+  font-family:var(--sans);font-size:0.74rem;font-weight:500;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--earth)}
+.menu-btn .bars{display:flex;flex-direction:column;gap:4px;width:20px}
+.menu-btn .bars span{height:1.4px;background:var(--earth);display:block}
+.icon-btn{background:none;border:none;color:var(--earth);display:flex;align-items:center;cursor:pointer}
+.nav-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+.nav-center .logo-icon{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.nav-center .logo-text{font-family:var(--serif);font-size:1.15rem;letter-spacing:0.06em;color:var(--earth);line-height:1}
+.nav-center .logo-text span{display:block;font-size:0.5rem;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--saffron);font-family:var(--sans);font-weight:500;margin-top:3px}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-lang{font-family:var(--sans);font-size:0.74rem;letter-spacing:0.08em;color:var(--text-mid);
+  border-bottom:1px solid var(--earth);padding-bottom:3px;display:none}
+@media(min-width:760px){.nav-lang{display:inline-block}}
+.btn-reserve{font-family:var(--sans);font-size:0.72rem;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--white);background:var(--earth);
+  padding:0.85rem 1.7rem;border:1px solid var(--earth);text-decoration:none;transition:background .25s}
+.btn-reserve:hover{background:var(--earth-mid)}
+
+/* ─── MENU OVERLAY ─── */
+.menu-panel{position:fixed;inset:0;z-index:500;background:var(--parchment);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .4s ease}
+.menu-panel.open{opacity:1;visibility:visible}
+.menu-close{position:absolute;top:22px;right:40px;background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--earth);display:flex;align-items:center;gap:10px}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px;max-width:900px;padding:0 40px}
+.menu-grid h4{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--saffron);margin-bottom:22px}
+.menu-grid ul{list-style:none}
+.menu-grid li{margin-bottom:14px}
+.menu-grid a{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--earth);text-decoration:none;transition:color .2s}
+.menu-grid a:hover{color:var(--saffron)}
+@media(max-width:760px){.menu-grid{grid-template-columns:1fr;gap:32px;text-align:center}}
+
+/* ─── COOKIE BANNER ─── */
+.cookie-overlay{position:fixed;inset:0;background:rgba(20,18,12,0.5);z-index:900;
+  display:flex;align-items:center;justify-content:center;
+  opacity:1;visibility:visible;transition:opacity .35s ease}
+.cookie-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.cookie-box{background:var(--parchment);max-width:560px;width:90vw;padding:42px 44px;text-align:center}
+.cookie-logo{font-family:var(--serif);font-size:1.5rem;letter-spacing:0.04em;color:var(--earth);margin-bottom:18px}
+.cookie-text{font-size:0.92rem;line-height:1.7;color:var(--text-mid);margin-bottom:22px;font-weight:300}
+.cookie-text a{text-decoration:underline;color:var(--saffron)}
+.cookie-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cookie-settings-link{font-size:0.84rem;text-decoration:underline;color:var(--text-mid)}
+.btn-dark{font-family:var(--sans);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--white);background:var(--earth);padding:0.85rem 1.7rem;border:1px solid var(--earth);cursor:pointer}
+.btn-dark:hover{background:var(--earth-mid)}
+
+/* ─── HERO (full-bleed, bottom caption) ─── */
+.hero{position:relative;height:96vh;min-height:600px;display:block;padding:0;overflow:hidden}
+.hero-img{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.hero-scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(14,22,16,0.74) 0%,rgba(14,22,16,0.18) 46%,transparent 72%)}
+.hero-cap{position:absolute;left:40px;bottom:54px;right:40px;z-index:2;max-width:620px}
+.hero-cap .hero-eyebrow{font-family:var(--sans);font-size:0.7rem;font-weight:600;letter-spacing:0.32em;
+  text-transform:uppercase;color:var(--saffron-light);margin-bottom:1rem;opacity:1;animation:none}
+.hero-cap .hero-title{font-family:var(--serif);font-size:clamp(2.4rem,5.2vw,4.4rem);font-weight:300;
+  line-height:1.08;color:var(--parchment);letter-spacing:-0.01em;opacity:1;animation:none;max-width:none}
+.hero-cap .hero-title em{font-style:italic;color:var(--saffron-light)}
+.hero-cap .hero-desc{font-size:1rem;line-height:1.75;color:rgba(242,232,212,0.82);
+  margin-top:1.1rem;max-width:480px;font-weight:300}
+.hero-cap .hero-actions{margin-top:1.6rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;opacity:1;animation:none}
+
+/* ─── SHARED SECTION SHELL ─── */
+.amn-section{padding:110px 0;background:var(--parchment)}
+.amn-section.tight{padding:84px 0}
+.amn-section.deep{background:var(--parchment-mid)}
+.amn-section.dark{background:var(--earth)}
+.amn-wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.amn-divider{width:100%;height:1px;background:rgba(196,136,40,0.18)}
+.link-u{font-family:var(--sans);font-size:0.74rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--earth);text-decoration:underline;text-decoration-color:var(--saffron-border);
+  text-underline-offset:6px;transition:text-decoration-color .25s;cursor:pointer}
+.link-u:hover{text-decoration-color:var(--saffron)}
+.link-u.light{color:var(--parchment);text-decoration-color:rgba(242,232,212,0.5)}
+.link-u.light:hover{text-decoration-color:var(--parchment)}
+
+/* ─── EDITORIAL (image + text) ─── */
+.editorial{display:grid;grid-template-columns:1.05fr 0.95fr;gap:80px;align-items:center}
+.editorial.rev{direction:rtl}
+.editorial.rev>*{direction:ltr}
+.editorial-img{height:500px;width:100%;object-fit:cover;border-radius:2px}
+
+/* ─── CARD GRID ─── */
+.amn-grid{display:grid;gap:2px}
+.amn-grid.c3{grid-template-columns:repeat(3,1fr)}
+.amn-grid.c4{grid-template-columns:repeat(4,1fr)}
+.amn-card{display:block;text-decoration:none;color:inherit;cursor:pointer}
+.amn-card-img{height:360px;background-size:cover;background-position:center;transition:opacity .3s}
+.amn-card:hover .amn-card-img{opacity:.9}
+.amn-card-body{padding:26px 6px 0}
+.amn-card-tag{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--saffron);margin-bottom:10px}
+.amn-card-title{font-family:var(--serif);font-size:1.5rem;font-weight:300;color:var(--earth);margin-bottom:10px}
+.amn-card-desc{font-size:0.92rem;line-height:1.7;color:var(--text-mid);font-weight:300;margin-bottom:16px}
+
+/* ─── DESTINATION TILES ─── */
+.dest{position:relative;height:340px;overflow:hidden;cursor:pointer}
+.dest-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
+.dest:hover .dest-img{transform:scale(1.04)}
+.dest-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,10,0.82) 0%,transparent 56%)}
+.dest-cap{position:absolute;left:22px;bottom:20px;right:22px;z-index:1}
+.dest-region{font-family:var(--sans);font-size:0.6rem;font-weight:500;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--saffron-light);margin-bottom:5px}
+.dest-name{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--parchment)}
+
+/* ─── DARK QUOTE BAND ─── */
+.quote-wrap{max-width:800px;margin:0 auto;text-align:center}
+.quote-big{font-family:var(--serif);font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:300;font-style:italic;
+  color:var(--parchment);line-height:1.42}
+.quote-big em{color:var(--saffron-light);font-style:normal}
+.quote-attr{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.24em;
+  text-transform:uppercase;color:rgba(242,232,212,0.55);margin-top:1.8rem}
+
+/* ─── NEWSLETTER ─── */
+.newsletter{padding:90px 0;background:var(--parchment-deep);text-align:center}
+.form-row{display:flex;max-width:460px;margin:2rem auto 0}
+.form-row input{flex:1;padding:1rem 1.2rem;background:var(--parchment);
+  border:1px solid var(--saffron-border);border-right:none;
+  font-family:var(--sans);font-size:0.92rem;color:var(--text);outline:none}
+.form-row input:focus{border-color:var(--saffron)}
+.form-row button{padding:1rem 1.8rem;background:var(--earth);color:var(--white);border:1px solid var(--earth);
+  font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer}
+.form-row button:hover{background:var(--earth-mid)}
+
+/* ─── BIG FOOTER ─── */
+footer{background:var(--earth);padding:80px 40px 36px;color:rgba(242,232,212,0.7);
+  display:block;border-top:1px solid rgba(196,136,40,0.15)}
+.footer-top{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:44px}
+.footer-col h4{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--saffron);margin-bottom:18px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-col a{color:rgba(242,232,212,0.7);font-size:0.86rem;text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--parchment)}
+.footer-brand .footer-logo{display:flex;align-items:center;gap:0.7rem;margin-bottom:18px}
+.footer-brand .footer-logo-text{font-family:var(--serif);font-size:1.2rem;color:var(--parchment)}
+.footer-brand .footer-logo-text span{display:block;font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--saffron);font-family:var(--sans);margin-top:3px}
+.footer-brand p{font-size:0.88rem;line-height:1.7;color:rgba(242,232,212,0.55);font-weight:300;max-width:300px}
+.footer-bottom{max-width:1240px;margin:56px auto 0;padding-top:26px;border-top:1px solid rgba(242,232,212,0.12);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.footer-bottom-logo{font-family:var(--serif);font-size:1.2rem;letter-spacing:0.04em;color:var(--parchment)}
+.footer-social{display:flex;gap:12px;align-items:center}
+.footer-social a{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(242,232,212,0.25);font-size:0.7rem;color:rgba(242,232,212,0.7);text-decoration:none}
+.footer-social a:hover{border-color:var(--saffron);color:var(--saffron)}
+.footer-disclaimer{font-size:0.7rem;color:rgba(242,232,212,0.4);max-width:780px;margin:22px auto 0;
+  text-align:center;line-height:1.6;font-style:italic}
+
+/* ─── RESPONSIVE (Aman layout) ─── */
+@media(max-width:960px){
+  nav{padding:16px 20px}
+  .menu-close{right:20px}
+  .amn-wrap{padding:0 20px}
+  .hero{padding:0;min-height:520px;height:88vh}
+  .hero-cap{left:20px;right:20px;bottom:34px}
+  .editorial,.editorial.rev{grid-template-columns:1fr;gap:40px;direction:ltr}
+  .editorial-img{height:320px}
+  .amn-grid.c3,.amn-grid.c4{grid-template-columns:1fr}
+  .amn-section{padding:72px 0}
+  footer{padding:60px 20px 28px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:34px}
+}
 </style>
 </head>
 <body>
 
+<!-- ─── COOKIE BANNER ─── -->
+<div class="cookie-overlay" id="cookie-overlay">
+  <div class="cookie-box">
+    <div class="cookie-logo">Three Roots</div>
+    <p class="cookie-text">Three Roots uses necessary cookies for website functionality, and may use additional cookies to enhance and personalise your browsing experience. Click "Accept" to accept all cookies, or adjust your preferences. View our <a href="#">cookie policy here.</a></p>
+    <div class="cookie-actions">
+      <a href="#" class="cookie-settings-link" onclick="closeCookies();return false">Cookie Settings</a>
+      <button class="btn-dark" onclick="closeCookies()">Accept All Cookies</button>
+    </div>
+  </div>
+</div>
+
 <!-- ─── NAVIGATION ─── -->
 <nav>
-  <a href="#" class="nav-logo" onclick="showPage('home',this)">
-    <img src="three-roots-logo.jpg" class="logo-icon" alt="Three Roots Logo" style="border-radius: 50%; object-fit: cover;">
+  <div class="nav-left">
+    <button class="menu-btn" onclick="toggleMenu(true)" aria-label="Open menu">
+      <span class="bars"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+    <button class="icon-btn" aria-label="Search">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+  </div>
+  <a href="#" class="nav-center" onclick="showPage('home',null)">
+    <img src="three-roots-logo.jpg" class="logo-icon" alt="Three Roots Logo">
     <div class="logo-text">Three Roots <span>Health is Already Here</span></div>
   </a>
-  <ul class="nav-links">
-    <li><a href="#" onclick="showPage('home',this)" data-page="home" class="active">Home</a></li>
-    <li><a href="#" onclick="showPage('retreat',this)" data-page="retreat">The Retreat</a></li>
-    <li><a href="#" onclick="showPage('research',this)" data-page="research">Research</a></li>
-    <li><a href="#" onclick="showPage('testimonials',this)" data-page="testimonials">Stories</a></li>
-    <li><a href="#" onclick="showPage('products',this)" data-page="products">Products</a></li>
-    <li><a href="#" onclick="showPage('investors',this)" data-page="investors">Investors</a></li>
-  </ul>
+  <div class="nav-right">
+    <span class="nav-lang">English</span>
+    <a href="#" onclick="showPage('retreat',null)" class="btn-reserve">Reserve</a>
+  </div>
 </nav>
+
+<!-- ─── MENU OVERLAY ─── -->
+<div class="menu-panel" id="menu-panel">
+  <button class="menu-close" onclick="toggleMenu(false)" aria-label="Close menu">
+    Close
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+  </button>
+  <div class="menu-grid">
+    <div>
+      <h4>Discover</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('home',null);toggleMenu(false)">Home</a></li>
+        <li><a href="#" onclick="showPage('retreat',null);toggleMenu(false)">The Retreat</a></li>
+        <li><a href="#" onclick="showPage('research',null);toggleMenu(false)">Research</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>The Three Roots</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('testimonials',null);toggleMenu(false)">Stories</a></li>
+        <li><a href="#" onclick="showPage('products',null);toggleMenu(false)">Products</a></li>
+        <li><a href="#" onclick="showPage('investors',null);toggleMenu(false)">Investors</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('investors',null);toggleMenu(false)">Investor Access</a></li>
+        <li><a href="#" onclick="showPage('retreat',null);toggleMenu(false)">Plan a Visit</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 <!-- ═══════════════════════════════════════════════════════
@@ -877,35 +1111,17 @@ footer{
 ═══════════════════════════════════════════════════════ -->
 <div id="page-home" class="page active">
 
-  <!-- Hero -->
-  <section class="hero" style="background:var(--parchment);position:relative;overflow:hidden">
-  <canvas id="hero-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.6;"></canvas>
-  <div class="hero-real-bg" style="position:absolute;inset:0;background-image:url('images/hero-himalayas.png');background-size:cover;background-position:center;z-index:0"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(242,232,212,1) 0%, rgba(242,232,212,0.95) 20%, rgba(242,232,212,0.7) 45%, rgba(242,232,212,0.2) 75%, transparent 100%);z-index:0;"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(242,232,212,1) 0%, rgba(242,232,212,0.9) 12%, rgba(242,232,212,0.5) 25%, transparent 45%);z-index:0;"></div>
-    
-    <div class="hero-saffron-edge"></div>
-    <!-- Mandala SVG -->
-    
-
-    <p class="hero-eyebrow" style="position:relative;z-index:2">Dharamshala · Bhutan · The World</p>
-    <h1 class="hero-headline" style="position:relative;z-index:2">
-      Tibetan Medicine.<br>
-      <span class="line2">Ancient <em>Roots.</em></span><br>
-      <span class="line3">Modern World.</span>
-    </h1>
-    <p class="hero-sub" style="position:relative;z-index:2">We are building a research-backed Tibetan medicine retreat centre — where two thousand years of healing wisdom meet rigorous modern science, and a new standard of care begins.</p>
-    <div class="hero-actions" style="position:relative;z-index:2">
-      <a href="#" onclick="showPage('retreat',null)" class="btn-saffron">Explore the Retreat</a>
-      <a href="#" onclick="showPage('research',null)" class="btn-earth">Our Research</a>
-    </div>
-    <div class="hero-bottom" style="position:relative;z-index:2">
-      <div class="hero-stat"><span class="num">35+</span><span class="lbl">Years of practice</span></div>
-      <div class="hero-stat"><span class="num">3</span><span class="lbl">Planned retreat centres</span></div>
-      <div class="hero-stat"><span class="num">2,000+</span><span class="lbl">Years of Tibetan medicine history</span></div>
-      <div class="hero-scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img" style="background-image:url('images/hero-himalayas.png')"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-cap">
+      <p class="hero-eyebrow">Dharamshala · Bhutan · The World</p>
+      <h1 class="hero-title">Tibetan Medicine.<br>Ancient <em>Roots.</em> Modern World.</h1>
+      <p class="hero-desc">A research-backed Tibetan medicine retreat centre — where two thousand years of healing wisdom meet rigorous modern science.</p>
+      <div class="hero-actions">
+        <a href="#" onclick="showPage('retreat',null)" class="btn-saffron">Explore the Retreat</a>
+        <a href="#" onclick="showPage('research',null)" class="link-u light">Our research →</a>
       </div>
     </div>
   </section>
@@ -913,122 +1129,159 @@ footer{
   <!-- Prayer flags -->
   <div class="prayer-flags"><span class="pf-blue"></span><span class="pf-white"></span><span class="pf-red"></span><span class="pf-green"></span><span class="pf-yellow"></span></div>
 
-  <!-- Origin Story -->
-  <section class="origin">
-    <div class="origin-grain"></div>
-  <canvas id="origin-canvas" class="canvas-bg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.8;"></canvas>
-    <div class="origin-inner" style="position:relative;z-index:2">
-      <div class="reveal">
-        <div class="label-tag" style="color:var(--saffron-light)">The Origin</div>
-        <blockquote class="origin-quote">"I spent a decade<br>studying this medicine —<br>in the Himalayas<br>and in the West.<br>The world needs<br>what this tradition <em>knows.</em>"</blockquote>
-        <p class="origin-attr">Drew McGlathery, Co-Founder & CEO</p>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <p class="body-text light" style="margin-bottom:1.4em">Three Roots began with a scholar's journey. As a Nehru-Fulbright Senior Scholar, Drew McGlathery spent a decade studying medicine across the Himalayas and the United States — training with some of the finest doctors in both worlds, from leading Western clinicians to the masters of Tibetan medicine at Mentseekhang, the medical institute of His Holiness the Dalai Lama.</p>
-        <p class="body-text light" style="margin-bottom:1.4em">What he found there went far beyond technique. Rooted in Tibetan Buddhism and centuries of meditative practice, this medicine understands the human being as a whole — body, mind, and spirit — with a depth and completeness that changed the course of his life.</p>
-        <p class="body-text light">Three Roots was founded to carry that wisdom forward. Its co-founders share one passion and one commitment: <strong style="color:var(--parchment);font-weight:400">to bring one of humanity's greatest healing traditions to the world — in service of people and the planet.</strong></p>
-        <div class="gold-rule" style="margin-top:2.5rem"></div>
+  <!-- EDITORIAL — The Origin -->
+  <section class="amn-section">
+    <div class="amn-wrap">
+      <div class="editorial">
+        <img class="editorial-img reveal" src="images/about-bg.png" alt="The origin of Three Roots">
+        <div class="reveal reveal-delay-1">
+          <div class="label-tag">The Origin</div>
+          <h2 class="section-title">A scholar's<br><em>journey.</em></h2>
+          <div class="gold-rule"></div>
+          <p class="body-text" style="margin-bottom:1.3em">Three Roots began with a decade of study across the Himalayas and the United States — training with leading Western clinicians and the masters of Tibetan medicine at Mentseekhang, the medical institute of His Holiness the Dalai Lama.</p>
+          <p class="body-text">What our founders found there went far beyond technique: a medicine that understands the human being as a whole — body, mind, and spirit — with a depth that changed the course of their lives.</p>
+          <div style="margin-top:1.8rem"><a href="#" onclick="showPage('retreat',null)" class="link-u">Discover more</a></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Three Pillars -->
-  <section class="pillars">
-    <div class="section-wrap">
-      <div class="pillars-header reveal">
+  <div class="amn-divider"></div>
+
+  <!-- THE THREE ROOTS — card grid -->
+  <section class="amn-section">
+    <div class="amn-wrap">
+      <div class="reveal" style="max-width:640px;margin-bottom:56px">
         <div class="label-tag">The Three Roots</div>
-        <h2 class="section-title">One vision.<br><em>Three expressions.</em></h2>
+        <h2 class="section-title">One vision,<br>expressed in <em>three.</em></h2>
       </div>
     </div>
-    <div class="pillars-grid">
-      <div class="pillar-card reveal" onclick="showPage('retreat',null)" style="cursor:pointer">
-        <div class="pillar-img retreat" style="background-image:url('images/Dharamshala.jpg');background-size:cover;background-position:center;"></div>
-        <div class="pillar-body">
-          <p class="pillar-num">01 · The Retreat</p>
-          <h3 class="pillar-title">Dharamshala Centre</h3>
-          <p class="pillar-desc">A sanctuary in the Himalayas where Tibetan medicine consultations, yoga unlike anywhere else, and deep meditation practices converge in a single transformative experience.</p>
-          <a class="pillar-link">Explore the vision →</a>
+    <div class="amn-grid c3 reveal reveal-delay-1" style="max-width:1240px;margin:0 auto;padding:0 40px">
+      <a href="#" onclick="showPage('retreat',null)" class="amn-card">
+        <div class="amn-card-img" style="background-image:url('images/Dharamshala.jpg')"></div>
+        <div class="amn-card-body">
+          <p class="amn-card-tag">01 · The Retreat</p>
+          <h3 class="amn-card-title">Dharamshala Centre</h3>
+          <p class="amn-card-desc">A Himalayan sanctuary where Tibetan medicine consultations, yoga unlike anywhere else, and deep meditation practices converge in a single transformative experience.</p>
+          <span class="link-u">Explore the vision</span>
         </div>
+      </a>
+      <a href="#" onclick="showPage('research',null)" class="amn-card">
+        <div class="amn-card-img" style="background-image:url('images/research.jpg')"></div>
+        <div class="amn-card-body">
+          <p class="amn-card-tag">02 · The Research</p>
+          <h3 class="amn-card-title">Evidence-Based Medicine</h3>
+          <p class="amn-card-desc">Rigorous in-house studies and Western accreditation of manufacturing — building the evidentiary bridge between ancient wisdom and modern clinical standards.</p>
+          <span class="link-u">Our research approach</span>
+        </div>
+      </a>
+      <a href="#" onclick="showPage('products',null)" class="amn-card">
+        <div class="amn-card-img" style="background-image:url('images/products.jpg')"></div>
+        <div class="amn-card-body">
+          <p class="amn-card-tag">03 · The Products</p>
+          <h3 class="amn-card-title">Accredited Products</h3>
+          <p class="amn-card-desc">Once research is complete and manufacturing certified to Western standards, Three Roots will bring the first truly authentic Tibetan medicinal formulas to a global market.</p>
+          <span class="link-u">The product vision</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="amn-divider"></div>
+
+  <!-- THE ROADMAP — destination tiles -->
+  <section class="amn-section">
+    <div class="amn-wrap">
+      <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto 56px">
+        <div class="label-tag" style="justify-content:center">The Roadmap</div>
+        <h2 class="section-title">From Dharamshala<br>to <em>the world.</em></h2>
+        <p class="body-text" style="margin:1rem auto 0">A growing network of retreat centres carrying Tibetan medicine across the globe — beginning in the Himalayas and reaching toward the West.</p>
       </div>
-      <div class="pillar-card reveal reveal-delay-1" onclick="showPage('research',null)" style="cursor:pointer">
-        <div class="pillar-img research" style="background-image:url('images/research.jpg'),url('https://images.squarespace-cdn.com/content/v1/66dc6ecfaa06215e48962e38/1733125200303-75YLQ9FDH8VNIIMTM5HB/unsplash-image-uMbGXBy7bKs.jpg'),linear-gradient(160deg,#2A2018 0%,#5A4030 55%,#9A7848 100%);background-size:cover;background-position:center;"></div>
-        <div class="pillar-body">
-          <p class="pillar-num">02 · The Research</p>
-          <h3 class="pillar-title">Evidence-Based Medicine</h3>
-          <p class="pillar-desc">Rigorous in-house studies. Western accreditation of manufacturing practices. Building the evidentiary bridge between ancient wisdom and modern clinical standards.</p>
-          <a class="pillar-link">Our research approach →</a>
-        </div>
+    </div>
+    <div class="amn-grid c4 reveal reveal-delay-1" style="max-width:1240px;margin:0 auto;padding:0 40px">
+      <div class="dest" onclick="showPage('retreat',null)">
+        <div class="dest-img" style="background-image:url('images/Dharamshala.jpg')"></div>
+        <div class="dest-scrim"></div>
+        <div class="dest-cap"><p class="dest-region">2027 · India</p><p class="dest-name">Dharamshala</p></div>
       </div>
-      <div class="pillar-card reveal reveal-delay-2" onclick="showPage('products',null)" style="cursor:pointer">
-        <div class="pillar-img products" style="background-image:url('images/products.jpg'),url('https://images.squarespace-cdn.com/content/v1/66dc6ecfaa06215e48962e38/1733126308924-C5QQLYC52GLSXKH3ERBJ/unsplash-image-cU53ZFBr3lk.jpg'),linear-gradient(160deg,#2A1418 0%,#6A2030 55%,#A44828 100%);background-size:cover;background-position:center;"></div>
-        <div class="pillar-body">
-          <p class="pillar-num">03 · The Products</p>
-          <h3 class="pillar-title">Accredited Products</h3>
-          <p class="pillar-desc">Once our in-house research is complete and manufacturing is certified to western standards, Three Roots will bring the first truly authentic Tibetan medicinal formulas to a global market.</p>
-          <a class="pillar-link">The product vision →</a>
-        </div>
+      <div class="dest" onclick="showPage('retreat',null)">
+        <div class="dest-img" style="background-image:url('images/retreats-bg.png')"></div>
+        <div class="dest-scrim"></div>
+        <div class="dest-cap"><p class="dest-region">2028 · Canary Islands</p><p class="dest-name">Tenerife</p></div>
+      </div>
+      <div class="dest" onclick="showPage('retreat',null)">
+        <div class="dest-img" style="background-image:url('images/meditation-cta.png')"></div>
+        <div class="dest-scrim"></div>
+        <div class="dest-cap"><p class="dest-region">2029 · USA</p><p class="dest-name">New York</p></div>
+      </div>
+      <div class="dest" onclick="showPage('retreat',null)">
+        <div class="dest-img" style="background-image:url('images/experience-bg.png')"></div>
+        <div class="dest-scrim"></div>
+        <div class="dest-cap"><p class="dest-region">2030 · Himalayas</p><p class="dest-name">Bhutan</p></div>
+      </div>
+    </div>
+    <div class="amn-wrap" style="margin-top:36px;text-align:center">
+      <a href="#" onclick="showPage('retreat',null)" class="link-u">View the full roadmap</a>
+    </div>
+  </section>
+
+  <!-- DARK QUOTE -->
+  <section class="amn-section dark">
+    <div class="amn-wrap">
+      <div class="quote-wrap reveal">
+        <div class="gold-rule center" style="background:var(--saffron-light)"></div>
+        <p class="quote-big">"Tibetan medicine is <em>complete medicine</em> — a 2,000-year tradition of systematic diagnosis, botanical pharmacy, and the treatment of the whole human being."</p>
+        <p class="quote-attr">Dr. Phuntsog Wangmo · Chief Medical Officer</p>
       </div>
     </div>
   </section>
 
-  <!-- Mission pull-quote -->
-  <div class="mission-strip">
-    <div class="mission-strip-inner reveal">
-      <div class="gold-rule center"></div>
-      <p class="mission-pull">"Tibetan medicine is <em>complete medicine</em> —<br>a 2,000-year tradition of<br>systematic diagnosis, botanical pharmacy, and the<br>treatment of the whole human being."</p>
-      <div class="gold-rule center"></div>
-      <p style="font-family:var(--sans);font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);margin-top:1.5rem;text-align:center">Dr. Phuntsog Wangmo · Chief Medical Officer</p>
-    </div>
-  </div>
-
-  <!-- Team -->
-  <section class="team">
-    <div class="section-wrap">
-      <div class="reveal">
+  <!-- MEDICAL LEADERSHIP — card grid -->
+  <section class="amn-section tight deep">
+    <div class="amn-wrap">
+      <div class="reveal" style="margin-bottom:50px">
         <div class="label-tag">Medical Leadership</div>
         <h2 class="section-title">Expertise with<br><em>genuine lineage.</em></h2>
       </div>
-      <div class="team-grid">
-        <div class="team-card reveal reveal-delay-1">
-          <div class="team-photo">
-            <div class="team-photo-inner" style="background:linear-gradient(135deg,#1C2A2A 0%,#2A5040 100%)"></div>
-          </div>
-          <p class="team-name">Drew McGlathery</p>
-          <p class="team-role">Co-Founder & CEO</p>
-          <p class="team-bio">Board-certified psychiatric nurse practitioner and <em>Menpa</em> (Tibetan medicine doctor). Nehru-Fulbright Senior Scholar who researched at Mentseekhang, the Tibetan Medical Institute of His Holiness the Dalai Lama.</p>
+    </div>
+    <div class="amn-grid c3 reveal reveal-delay-1" style="max-width:1240px;margin:0 auto;padding:0 40px">
+      <div class="amn-card">
+        <div class="amn-card-img" style="background:linear-gradient(135deg,#1C2A2A 0%,#2A5040 100%)"></div>
+        <div class="amn-card-body">
+          <p class="amn-card-tag">Co-Founder & CEO</p>
+          <h3 class="amn-card-title">Drew McGlathery</h3>
+          <p class="amn-card-desc">Board-certified psychiatric nurse practitioner and <em>Menpa</em> (Tibetan medicine doctor). Nehru-Fulbright Senior Scholar who researched at Mentseekhang, the Tibetan Medical Institute of His Holiness the Dalai Lama.</p>
         </div>
-        <div class="team-card reveal reveal-delay-2">
-          <div class="team-photo">
-            <div class="team-photo-inner" style="background:linear-gradient(135deg,#2A1C14 0%,#6A4028 100%)"></div>
-          </div>
-          <p class="team-name">Dr. Phuntsog Wangmo</p>
-          <p class="team-role">Chief Medical Officer</p>
-          <p class="team-bio">35+ years of practice. Trained at the Lhasa Mentsekhang. Co-founder of ATMA. One of the foremost Tibetan doctors practicing in the Western world today.</p>
+      </div>
+      <div class="amn-card">
+        <div class="amn-card-img" style="background:linear-gradient(135deg,#2A1C14 0%,#6A4028 100%)"></div>
+        <div class="amn-card-body">
+          <p class="amn-card-tag">Chief Medical Officer</p>
+          <h3 class="amn-card-title">Dr. Phuntsog Wangmo</h3>
+          <p class="amn-card-desc">35+ years of practice. Trained at the Lhasa Mentsekhang. Co-founder of ATMA. One of the foremost Tibetan doctors practicing in the Western world today.</p>
         </div>
-        <div class="team-card reveal reveal-delay-3">
-          <div class="team-photo">
-            <div class="team-photo-inner" style="background:linear-gradient(135deg,#281C20 0%,#5A3040 100%)"></div>
-          </div>
-          <p class="team-name">Research & Advisory</p>
-          <p class="team-role">Scientific Council</p>
-          <p class="team-bio">A growing panel of Western-trained scientists, clinicians, and researchers working alongside our Tibetan doctors to validate, study, and document our clinical outcomes.</p>
+      </div>
+      <div class="amn-card">
+        <div class="amn-card-img" style="background:linear-gradient(135deg,#281C20 0%,#5A3040 100%)"></div>
+        <div class="amn-card-body">
+          <p class="amn-card-tag">Scientific Council</p>
+          <h3 class="amn-card-title">Research & Advisory</h3>
+          <p class="amn-card-desc">A growing panel of Western-trained scientists, clinicians, and researchers working alongside our Tibetan doctors to validate, study, and document our clinical outcomes.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Home Investor CTA -->
-  <section class="home-cta" style="background-image:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1800&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:fixed;">
-    <div style="position:absolute;inset:0;background:rgba(28,56,40,0.85);z-index:0"></div>
-    
-    <div class="home-cta-inner reveal">
-      <div class="label-tag" style="justify-content:center;color:var(--saffron-light)">A Rare Opportunity</div>
-      <h2 class="home-cta-title">Be part of how<br>the West learns to <em>heal.</em></h2>
-      <p class="home-cta-sub">Three Roots is at the pre-opening stage of its flagship retreat centre in Dharamshala, India. We are seeking aligned angel investors to join us at the ground floor of something genuinely new.</p>
-      <div class="home-cta-actions">
-        <a href="#" onclick="showPage('investors',null)" class="btn-saffron">Enter Investor Portal</a>
-        <a href="#" onclick="showPage('retreat',null)" class="btn-outline-light">See the Retreat Centre</a>
-      </div>
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="amn-wrap reveal">
+      <div class="label-tag" style="justify-content:center">Stay in Touch</div>
+      <h2 class="section-title">Stay close to <em>Three Roots.</em></h2>
+      <p class="body-text" style="margin:1rem auto 0">For updates on our retreat opening, research, and the products to come, please register your interest.</p>
+      <form class="form-row">
+        <input type="email" placeholder="Email address" required>
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
   </section>
 
@@ -1536,23 +1789,62 @@ footer{
 
 <!-- ─── SHARED FOOTER ─── -->
 <footer id="site-footer">
-  <div class="footer-logo">
-    <img src="three-roots-logo.jpg" alt="Three Roots Logo" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
-    <div class="footer-logo-text">Three Roots <span>Tibetan Medicine · Est. 2023</span></div>
+  <div class="footer-top">
+    <div class="footer-col footer-brand">
+      <div class="footer-logo">
+        <img src="three-roots-logo.jpg" alt="Three Roots Logo" style="width:44px;height:44px;border-radius:50%;object-fit:cover;">
+        <div class="footer-logo-text">Three Roots <span>Tibetan Medicine · Est. 2023</span></div>
+      </div>
+      <p>A research-backed Tibetan medicine retreat centre — bringing two thousand years of healing wisdom to the modern world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('home',null)">Home</a></li>
+        <li><a href="#" onclick="showPage('retreat',null)">The Retreat</a></li>
+        <li><a href="#" onclick="showPage('research',null)">Research</a></li>
+        <li><a href="#" onclick="showPage('testimonials',null)">Stories</a></li>
+        <li><a href="#" onclick="showPage('products',null)">Products</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>The Roadmap</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('retreat',null)">Dharamshala, India</a></li>
+        <li><a href="#" onclick="showPage('retreat',null)">Tenerife, Canary Islands</a></li>
+        <li><a href="#" onclick="showPage('retreat',null)">New York, USA</a></li>
+        <li><a href="#" onclick="showPage('retreat',null)">Bhutan</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('investors',null)">Investor Access</a></li>
+        <li><a href="#" onclick="showPage('retreat',null)">Plan a Visit</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#" onclick="document.getElementById('cookie-overlay').classList.remove('hidden');return false">Cookie Settings</a></li>
+      </ul>
+    </div>
   </div>
-  <ul class="footer-links">
-    <li><a href="#" onclick="showPage('home',null)">Home</a></li>
-    <li><a href="#" onclick="showPage('retreat',null)">The Retreat</a></li>
-    <li><a href="#" onclick="showPage('research',null)">Research</a></li>
-    <li><a href="#" onclick="showPage('testimonials',null)">Stories</a></li>
-    <li><a href="#" onclick="showPage('products',null)">Products</a></li>
-    <li><a href="#" onclick="showPage('investors',null)">Investors</a></li>
-  </ul>
-  <p class="footer-copy">© 2026 Three Roots Ltd. All rights reserved. Dharamshala · Bhutan · The World.<br><span style="opacity:0.6;font-size:0.68rem">(*) This statement has not been evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat, cure or prevent any disease.</span></p>
+  <div class="footer-bottom">
+    <span class="footer-bottom-logo">Three Roots</span>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="YouTube">▶</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+    </div>
+    <span style="font-size:0.72rem;color:rgba(242,232,212,0.4)">© 2026 Three Roots Ltd. All rights reserved.</span>
+  </div>
+  <p class="footer-disclaimer">Dharamshala · Bhutan · The World. (*) This statement has not been evaluated by the Food and Drug Administration. This service is not intended to diagnose, treat, cure or prevent any disease.</p>
 </footer>
 
 
 <script>
+  // ─── MENU OVERLAY & COOKIE BANNER ───
+  function toggleMenu(open){ document.getElementById('menu-panel').classList.toggle('open', open); }
+  function closeCookies(){ document.getElementById('cookie-overlay').classList.add('hidden'); }
+
   // ─── PAGE ROUTING ───
   function showPage(id, linkEl) {
     // Hide all
